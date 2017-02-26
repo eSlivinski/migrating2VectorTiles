@@ -1,0 +1,12 @@
+@import "bower_components/font-awesome/scss/font-awesome.scss";
+@import "bower_components/highlight-js/src/styles/rainbow";
+@import "bower_components/bootstrap/dist/css/bootstrap";
+@import "./reveal/reveal.scss";
+@import "./theme/simple";
+
+
+
+.reveal svg{
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <style>
+      html, body {
+        text-align: center;
+      }
+
+      .state {
+        stroke: rgba(0,0,0,0.3);
+      }
+
+      circle {
+        fill: orange;
+        fill-opacity: 0.7;
+        stroke-opacity: 1;
+        stroke-width: 1;
+        stroke: yellow;
+      }
+
+
+.ticks {
+  font: 10px sans-serif;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  cursor: crosshair;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+}
+    </style>
+  </head>
+  <body>
+
+    <h4><span id="year"></span>, <span id="annualTotal"></span></h4>
+    <h4><span id="currentTotal"></span>    <button id="playButton"> Play </button></h4>
+    <div id="svgContainer"></div>
+  </body>
+<script src="http://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+  <script>
+  var width = 960,
+      height = 550;
+
+  var margin = { left: 10, right: 10, top: 50 }
+
+  var svg = d3.select("#svgContainer")
+    .append("svg")
+    .attr('width', width)
+    .attr('height', height)
+
+  var projection = d3.geoAlbersUsa();
+
+  var path = d3.geoPath()
+    .projection(projection);
+
+  var colorScale,
+      colors = ['#fff', '#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'];
+
+
+  var animationLength = 200,
+      animationDelay = 100;
+
+  var year_range,
+      annual_totals,
+      states,
+      circles,
+      slider,
+      currentYear;
+
+
+  function parseData(state_data, bigfoot_data) {
+    var years = _.chain(bigfoot_data.features)
+      .map(function(feature){ return feature.properties.year; })
+      .uniq()
+      .sortBy()
+      .value();
+
+    year_range = _.range(_.min(years), _.max(years) + 1);
+
+
+    annual_totals = _.chain(bigfoot_data.features)
+      .groupBy(function(feature){ return feature.properties.year; })
+      .mapValues(function(sitings) { return _.size(sitings); })
+      .value();
+
+    var blank = {
+      by_year: _.mapValues(_.mapKeys(year_range), function() { return 0 }),
+      total: 0
+    };
+
+    var totals = []
+
+    var by_state = _.chain(bigfoot_data.features)
+      .map('properties')
+      .groupBy('State')
+      .mapValues(function(sitings, state) {
+        var yrs = _.chain(year_range)
+          .mapKeys()
+          .mapValues(function(d, i) { return _.size(_.filter(sitings, { 'year': d })); })
+          .value();
+        var total = _.sum(_.values(yrs));
+        totals.push(total);
+        return { by_year: yrs, total: total };
+      })
+      .value();
+
+    _.forEach(state_data.features, function(state) {
+      var data = by_state[state.properties.name] || blank,
+          center = path.centroid(state);
+      _.extend(state.properties, data, { center: center });
+    });
+
+    defineScale(_.max(totals));
+    draw(state_data, bigfoot_data);
+    makeSlider();
+  }
+
+  function defineScale (max) {
+    var breakCount = colors.length;
+    var breaks = _.chain(breakCount)
+      .range()
+      .map(function(d) {
+        return !d ? 0 : d/breakCount * max;
+      }).value();
+
+    colorScale = d3.scaleLinear()
+      .range(colors)
+      .domain(breaks);
+  }
+
+  function draw (state_data, bigfoot_data) {
+    states = svg.append('g')
+      .attr('width', width - (margin.left + margin.right))
+      .attr('height', height - margin.top)
+      .attr('transform', 'translate(0, ' + margin.top + ')')
+      .selectAll("path")
+        .data(state_data.features)
+        .enter().append("path")
+        .attr('class', 'state')
+        .attr("d", path);
+
+    circles = svg.append('g')
+    .attr('width', width - (margin.left + margin.right))
+    .attr('height', height - margin.top)
+    .attr('transform', 'translate(0, ' + margin.top + ')')
+      .selectAll("circle")
+        .data(bigfoot_data.features)
+        .enter().append('circle')
+        .attr('transform', function(d) {
+          var screenCoords = projection(d.geometry.coordinates).join(',');
+          return 'translate(' + screenCoords + ')';
+        })
+        .attr('r', 0);
+
+
+  }
+
+
+  function style (year_index, animation) {
+    handle.attr("cx", x(year_index));
+    var year = year_range[year_index];
+    var annualTotal = (annual_totals[year] || 0);
+    var currentTotal = _.sum(_.filter(annual_totals, function(d, i) { return i <= year; }));
+
+    var t = d3.transition()
+      .duration(function() { return animation ? animationLength : 0; })
+      .delay(function() { return animation ? animationDelay : 0; })
+      .on('end', function() { return animation ? animate() : null; });
+
+    states.transition(t)
+      .attr('fill', function(d) {
+        var soFar = _.sum(_.filter(d.properties.by_year, function(d, i) {
+          return i <= year
+        }));
+        return colorScale(soFar);
+      });
+
+    circles.transition(t)
+      .attr('r', function(d) { return d.properties.year === year ? 7 : 0; });
+
+
+    d3.select('#year').transition(t)
+      .text(year);
+    d3.select('#annualTotal').transition(t)
+      .text(annualTotal.toString());
+    d3.select('#currentTotal').transition(t)
+      .text(currentTotal);
+  }
+
+  function animate () {
+    currentYear = !currentYear ? _.min(year_range) : currentYear+1;
+
+    if (currentYear <= _.max(year_range)) {
+      var year_index = year_range.indexOf(currentYear);
+      style(year_index, true);
+    } else {
+      circles.transition().attr('r', 0)
+    }
+  }
+
+  function makeSlider() {
+x = d3.scaleLinear()
+    .domain([0, year_range.length - 1])
+    .range([0, width - (margin.left + margin.right)])
+    .clamp(true);
+
+var slider = svg.append("g")
+    .attr("class", "slider")
+    .attr("transform", "translate(" + margin.left + "," + margin.top/2 + ")");
+
+slider.append("line")
+    .attr("class", "track")
+    .attr("x1", x.range()[0])
+    .attr("x2", x.range()[1])
+  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-inset")
+  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-overlay")
+    .call(d3.drag()
+        .on("start.interrupt", function() { slider.interrupt(); })
+        .on("start drag", function() {
+          var pos = Math.round(x.invert(d3.event.x));
+          style(pos);
+        }));
+
+slider.insert("g", ".track-overlay")
+    .attr("class", "ticks")
+    .attr("transform", "translate(0," + 18 + ")")
+  .selectAll("text")
+  .data(x.ticks(20))
+  .enter().append("text")
+    .attr("x", x)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return year_range[d]; });
+
+handle = slider.insert("circle", ".track-overlay")
+    .attr("class", "handle")
+    .attr("r", 9);
+
+  d3.select('#playButton')
+  .on('click', function() {
+    currentYear = _.min(year_range);
+    animate();
+  });
+
+    style(-1);
+  }
+
+  (function() {
+    d3.queue()
+      .defer(d3.json, './us.geojson')
+      .defer(d3.json, './bigfoots.geojson')
+      .awaitAll((err, results) => {
+        if (err) { return console.error(err); }
+        parseData(results[0], results[1]);
+      });
+  })();
+
+  </script>
+</html>

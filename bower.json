@@ -14,8 +14,10 @@
   "dependencies": {
     "headjs": "~1.0.3",
     "font-awesome": "fontawesome#^4.7.0",
-    "bootstrap": "v4.0.0-alpha.6",
-    "d3": "^4.6.0"
+    "d3": "^4.6.0",
+    "highlight-js": "^9.9.0",
+    "lodash": "^4.17.4",
+    "bootstrap": "^3.3.7"
   },
   "repository": {
     "type": "git",

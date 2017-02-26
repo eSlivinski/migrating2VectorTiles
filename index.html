@@ -4,13 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
-
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/white.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <title>d3.js</title>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -25,16 +21,275 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <i class="fa fa-home" style="color: pink"></i><br>
-          <iframe src="./examples/index.html"
-            style="width: 100%; height: 200px"></iframe>
+          <h1>D3.js</h1>
+          <h3>Lizzi Slivinski</h3><br>
+          <p>
+            <a href=""><i class="fa fa-fw fa-github" aria-hidden="true"></i> @eslivinski</a><br>
+            <a href=""><i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i> eslivinski@gmail.com</a><br>
+          </p>
+
         </section>
-        <section>Slide 2</section>
-      </div>
-    </div>
+
+        <section>
+          <h1>Game Plan:</h1>
+          <ol>
+            <li>What is d3.js</li>
+            <li>What is an svg</li>
+            <li>Examples</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1 class="huge">Data Driven Documents</h1>
+          <aside class="notes">
+            <ul>
+              <li>D3 = Data Driven Documents</li>
+              <li><strong>Document</strong> = DOM (Document Object Model)</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h3>Selectors</h3>
+          <div class="row">
+            <div class="col-sm-4"> <pre class="css"><code>foo</code></pre> </div>
+            <div class="col-sm-8"> <pre class="html"><code><foo></foo></code></pre> </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"> <pre class="css"><code>#foo</code></pre> </div>
+            <div class="col-sm-8"> <pre class="html"><code><any id="foo"></any></code></pre> </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"> <pre class="css"><code>.foo</code></pre> </div>
+            <div class="col-sm-8"> <pre class="html"><code><any class="foo"></any></code></pre> </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"> <pre class="css"><code>[foo=bar]</code></pre> </div>
+            <div class="col-sm-8"> <pre class="html"><code><any foo="bar"></any></code></pre> </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"> <pre class="css"><code>foo bar</code></pre> </div>
+            <div class="col-sm-8"> <pre class="html"><code><foo> <bar></bar> </foo></code></pre> </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Selectors</h3>
+          <pre class="javascript"><code>
+document.querySelector('foo#bar');      // Pure Javscript
+$('foo#bar');                           // Jquery
+d3.select('foo#bar');                   // d3
+</code></pre>
+        </section>
+
+        <section>
+          <h1 id="slide-title">Some Text</h1>
+          <aside class="notes">
+            <code>d3.select('#slide-title').html('A Better Title');</code>
+            <code>d3.select('#slide-title').attr('class', 'text-danger');</code>
+            <code>d3.select('#slide-title').style('font-family', 'Cursive');</code>
+            <code>d3.select('#slide-title').remove();</code>
+          </aside>
+        </section>
+
+        <section>
+          <h1>SVG</h1>
+          <hr>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element">SVG Elements</a></p>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute">SVG Attributes</a></p>
+          <aside class="notes">
+            <ul>
+              <li>SVG = Scaleable Vector Graphic</li>
+              <li>XML based -> Looks like HTML</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h1>d3.select</h1>
+        </section>
+
+        <section>
+          <svg width="202" height="202">
+            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          </svg>
+          <pre class="javascript"><code>
+  var circle = d3.select('circle');
+
+  circle.attr('fill', 'orange');
+
+</code></pre>
+
+        </section>
+
+        <section data-codeid="circle-1">
+          <svg width="202" height="202">
+            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          </svg>
+
+          <pre class="javascript"><code>
+  var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
+  d3.select('circle')
+    .transition(t)
+      .attr('cx', 100)
+      .attr('cy', 100)
+    .transition(t)
+      .attr('r', 100)
+    .transition()
+      .attr('r', 0);
+
+          </code></pre>
+
+          <small>
+            <a href="https://github.com/d3/d3/blob/master/API.md#transitions-d3-transition">#transitions-d3-transition</a>
+          </small>
+        </section>
+
+        <section data-codeid="circle-2">
+          <svg width="800" height="200">
+            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          </svg>
+
+          <pre class="javascript"><code>
+  var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
+  var svg = {
+    w: d3.select('svg').attr('width'),
+    h: d3.select('svg').attr('height')
+  };
+
+  function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function changeColor() {
+    var radius = randomNumber(0, d3.min([svg.w, svg.h])/2);
+
+   return d3.select('circle')
+    .transition(t)
+    .attr('r', radius)
+    .attr('cx', randomNumber(radius, svg.w - radius))
+    .attr('cy', randomNumber(radius, svg.h - radius))
+    .attr('fill', function () {
+     var r = randomNumber(1, 255),
+         g = randomNumber(1, 255),
+         b = randomNumber(1, 255);
+     return d3.rgb(r,g,b);
+    });
+  }
+
+  setInterval(changeColor, 1000);
+
+</code></pre>
+
+          <small>
+            <a href="https://github.com/d3/d3/blob/master/API.md#transitions-d3-transition">#transitions-d3-transition</a>
+          </small>
+        </section>
+
+        <section>
+          <h1>Creating New Elements</h1>
+          <hr>
+          <ol>
+            <li class="fragment" data-fragment-index="1"> Selection.append </li>
+            <li class="fragment" data-fragment-index="2"> Selection.data </li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Selection.append</h3>
+          <svg width="800" height="200">
+            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          </svg>
+          <pre class="javascript"><code>
+  d3.select('svg')      // Select container for new element
+    .append('rect')     // Define element type
+      .attr('x', 500)   // Set element attributes
+      .attr('y', 100)
+      .attr('height', 60)
+      .attr('width', 200)
+      .attr('fill', 'orange');
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Selection.data</h3>
+          <svg width="800" height="200"> </svg>
+          <pre class="javascript"><code>
+  var words = ["Hello", "World"];
+
+  var text = d3.select('svg')   // Select container
+    .selectAll('words')         // Dummy selector
+    .data(words)                // Array of data
+    .enter().append('text')     // Make elements
+    .attr('x', 10)
+    .attr('y', 55)
+    .text('my words')
+    .style('font-size', '20px')
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Selection.data</h3>
+          <svg width="800" height="200"> </svg>
+          <pre class="javascript"><code>
+  var words = ["Hello", "World"];
+
+  var text = d3.select('svg')   // Select container
+    .selectAll('words')         // Dummy selector
+    .data(words)                // Array of data
+    .enter().append('text')     // Make elements
+    .text(function(d,i) {
+      return d;
+    })
+    .attr('x', 10)
+    .attr('y', function(d, i) {
+      return 55 * (i+1);
+    })
+    .style('font-size', '20px')
+          </code></pre>
+        </section>
+
+    <section>
+      <h3>Selection.data</h3>
+      <svg width="800" height="200"> </svg>
+      <pre class="javascript"><code>
+  var words = [
+    { text: "Hello", color: "red" },
+    { text: "World", color: "blue" }
+  ];
+
+  var text = d3.select('svg')   // Select container
+    .selectAll('words')           // Dummy selector
+    .data(words)                  // Array of data
+    .enter().append('text')       // Make elements
+    .text(function(d,i) {
+      return d.text;
+    })
+    .attr('x', 10)
+    .attr('y', function(d, i) {
+      return 55 * (i+1);
+    })
+    .style('font-size', '20px')
+    .style('fill', function(d) {
+      return d.color;
+    });
+      </code></pre>
+    </section>
+
+  </div>
+</div>
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
 
     <script>
       // More info https://github.com/hakimel/reveal.js#configuration
@@ -49,6 +304,42 @@
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
         ]
       });
+
+      // SCOPE D3 SELECTIONS TO THE CURRENT SLIDE
+      var _d3 = _.cloneDeep(d3);
+      _.extend(d3, {
+        select: function(selector) {
+          return _d3.select('section.present').select(selector);
+        },
+        selectAll: function (selector) {
+          return _d3.select('section.present').selectAll(selector);
+        }
+      });
+
+      code= {};
+
+      // _d3.selectAll('[data-codeid]')
+      //   .each(function() {
+      //     var slide =_d3.select(this);
+      //     var codeId = slide.attr('data-codeid');
+      //     _d3.request('examples/'+codeId+'/main.js')
+      //         .get(function(d) {
+      //           slide.select('code').html(d.response);
+      //           code[codeId] = d.response;
+      //         });
+      // })
+
+      // Reveal.addEventListener( 'slidechanged', function(e) {
+      //   window.run = function() { };
+      //   var codeId = _d3.select(e.currentSlide).attr('data-codeid');
+      //   if (code[codeId]) {
+      //     window.run = new Function("console.log('"+codeId+"');" + code[codeId]);
+      //   } else {
+      //     window.run = function() { };
+      //   }
+      //   window.run();
+      // });
+
     </script>
   </body>
 </html>
