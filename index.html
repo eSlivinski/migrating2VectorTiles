@@ -31,65 +31,99 @@
         </section>
 
         <section>
-          <h1>Game Plan:</h1>
-          <ol>
-            <li>What is d3.js</li>
-            <li>What is an svg</li>
-            <li>Examples</li>
-          </ol>
+          <div class="row">
+            <div class="col-md-5">
+              <img src="./media/images/d3_logo.png" class="no-border"/>
+            </div>
+            <div class="col-md-7">
+              <ol>
+                <li>What is d3.js</li>
+                <li>What is an svg</li>
+                <li>Basic SVG shapes</li>
+                <li>Editing SVGs with d3</li>
+                <li>Editing SVGs with d3</li>
+              </ol>
+            </div>
+          </div>
+
         </section>
 
         <section>
-          <h1 class="huge">Data Driven Documents</h1>
+          <img src="./media/images/d3_logo.png" style="max-height: 30vh;border: none; box-shadow: none;"/>
+          <h2> =
+            <span class="fragment highlight-orange highlight-bold">D</span>ata
+            <span class="fragment highlight-orange highlight-bold">D</span>riven
+            <span class="fragment highlight-orange highlight-bold">D</span>ocuments
+          </h2>
           <aside class="notes">
             <ul>
               <li>D3 = Data Driven Documents</li>
               <li><strong>Document</strong> = DOM (Document Object Model)</li>
+              <li>Basic idea = modify elements based on a dataset</li>
             </ul>
           </aside>
         </section>
 
         <section>
-          <h3>Selectors</h3>
           <div class="row">
-            <div class="col-sm-4"> <pre class="css"><code>foo</code></pre> </div>
-            <div class="col-sm-8"> <pre class="html"><code><foo></foo></code></pre> </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4"> <pre class="css"><code>#foo</code></pre> </div>
-            <div class="col-sm-8"> <pre class="html"><code><any id="foo"></any></code></pre> </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4"> <pre class="css"><code>.foo</code></pre> </div>
-            <div class="col-sm-8"> <pre class="html"><code><any class="foo"></any></code></pre> </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4"> <pre class="css"><code>[foo=bar]</code></pre> </div>
-            <div class="col-sm-8"> <pre class="html"><code><any foo="bar"></any></code></pre> </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4"> <pre class="css"><code>foo bar</code></pre> </div>
-            <div class="col-sm-8"> <pre class="html"><code><foo> <bar></bar> </foo></code></pre> </div>
+            <div class="col-md-5">
+              <img src="./media/images/bostock.jpg" class="no-border img-rounded float-left"/>
+            </div>
+            <div class="col-md-7">
+              <ul>
+                <li><em>Data Visualization Rock Star</em> &mdash;&nbsp;Nieman&nbsp;Lab</li>
+                <li>Creator of:
+                  <a href="https://d3js.org/">d3.js</a>,
+                  <a href="https://github.com/topojson/topojson">topojson</a>,
+                  <a href="https://bl.ocks.org/">bl.ocks.org</a>,
+                  and many others
+                </li>
+                <li> Former Data Visualization Editor, New York Times </li>
+                <li>
+                  <a href="https://www.reddit.com/r/dataisbeautiful/comments/3k3if4/hi_im_mike_bostock_creator_of_d3js_and_a_former/">
+                    <i class="fa fa-reddit" aria-hidden="true"></i>
+                    Hi, I'm Mike Bostock
+                  </a>
+                </li>
+                <li> <a href="https://bost.ocks.org/mike/">bost.ocks.org/mike</a> </li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <section>
-          <h3>Selectors</h3>
-          <pre class="javascript"><code>
-document.querySelector('foo#bar');      // Pure Javscript
-$('foo#bar');                           // Jquery
-d3.select('foo#bar');                   // d3
-</code></pre>
+          <img src="./media/images/bostock-twitter.png"/>
         </section>
 
-        <section>
-          <h1 id="slide-title">Some Text</h1>
-          <aside class="notes">
-            <code>d3.select('#slide-title').html('A Better Title');</code>
-            <code>d3.select('#slide-title').attr('class', 'text-danger');</code>
-            <code>d3.select('#slide-title').style('font-family', 'Cursive');</code>
-            <code>d3.select('#slide-title').remove();</code>
-          </aside>
+        <!-- <section>
+          <div class="row">
+            <div class="col-md-8 text-left">
+              <h3>Most Web Maps</h3>
+              <iframe style="height: 70vh; width: 100%;" src="./examples/google-leaflet.html"></iframe>
+              <h5>Mercator Projection</h5>
+            </div>
+            <div class="col-md-4 fragment fade-up" style="border-left: 1px solid #000; height: 100vh;">
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                  <ul class="fa-ul" style="list-style: none; font-size: 90%;">
+                    <br>
+                    <li class="fragment fade-up"><i class="fa-li fa fa-thumbs-o-up"></i>Made of Squares</li>
+                    <br>
+                    <li class="fragment fade-up"><i class="fa-li fa fa-thumbs-o-up"></i>Navigating</li>
+                    <br>
+                    <li class="fragment fade-up"><i class="fa-li fa fa-thumbs-o-down"></i>Distorted</li>
+                    <br>
+                    <li class="fragment fade-up"><i class="fa-li fa fa-hand-o-right"></i> Not great for displaying data </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+        <section class="huge-text">
+          <h1>Put Examples Here</h1>
         </section>
 
         <section>
@@ -105,41 +139,229 @@ d3.select('foo#bar');                   // d3
           </aside>
         </section>
 
-        <section>
-          <h1>d3.select</h1>
+        <section class="huge-text">
+          <h1>SVG
+            <br>
+            <small>Basic Shapes</small></h1>
         </section>
 
         <section>
-          <svg width="202" height="202">
-            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          <h3>Circles</h3>
+          <svg width="100%" height="200">
+            <circle cx="400" cy="150" r="20"></circle>
+            <circle cx="100" cy="100" r="30" fill="blue" stroke="red"
+              stroke-width="5"></circle>
           </svg>
-          <pre class="javascript"><code>
+
+          <pre class="html"><code>
+  <!-- Require a width and a height -->
+  <svg width="100%" height="200">
+    <!-- Require a position and radius -->
+    <circle cx="400" cy="150" r="20"></circle>
+    <circle cx="100" cy="100" r="30" fill="blue"
+      stroke="red"
+      stroke-width="5"></circle>
+  </svg>
+          </code></pre>
+          <aside class="notes">
+            <ul>
+              <li> The position of a circle is relative to its center</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h3>Squares/Rectangles</h3>
+          <svg width="100%" height="200">
+            <rect x="100" y="100" width="50" height="50" fill="#654321"></rect>
+            <rect transform="translate(600, 10)"
+                  width="75" height="180"
+                  fill="pink" fill-opacity="0.5"
+                  stroke="pink" stroke-width="10"></rect>
+          </svg>
+
+          <pre class="html"><code>
+    <svg width="100%" height="200">
+      <!-- Require position, width, height -->
+      <rect x="100" y="100" width="50" height="50" fill="#654321"></rect>
+      <rect transform="translate(600, 10)"
+            width="75" height="180"
+            fill="pink" fill-opacity="0.5"
+            stroke="pink" stroke-width="10"></rect>
+    </svg>
+          </code></pre>
+          <aside class="notes">
+            <ul>
+              <li>The position of rectangle is relative to its top-right corner</li>
+              <li>Stroke position is always aligned so the middle of the stroke is in the
+                  middle of the svg element</li>
+              <li>The position of the svg element does not include the stroke</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h3>Text</h3>
+          <style>
+            .myCustomClass {
+              font-family: cursive;
+              fill: green;
+            }
+          </style>
+          <svg width="100%" height="200">
+            <text transform="translate(100, 80)" fill="purple">Hello World</text>
+            <text transform="translate(600, 150)" class="myCustomClass">Hooray SVGs</text>
+          </svg>
+
+          <pre class="html"><code>
+  <!-- CSS can be used to modify to appearence of any SVG element -->
+  <style>
+    .myCustomClass {
+      font-family: cursive;
+      fill: green;
+    }
+  </style>
+  <svg width="100%" height="200">
+    <!-- Require a position (and words) -->
+    <text transform="translate(100, 80)" fill="purple">Hello World</text>
+    <text transform="translate(600, 150)" class="myCustomClass">Hooray SVGs</text>
+  </svg>
+          </code></pre>
+
+        </section>
+
+        <section class="huge-text">
+          <h1>Modifying SVGs <br>with d3.js</h1>
+        </section>
+
+        <section>
+          <section>
+            <h3>d3.select</h3>
+
+            <svg width="100%" height="200">
+              <circle cx="100" cy="100" r="30" fill="blue"></circle>
+            </svg>
+            <pre class="javascript"><code>
+  // STEP #1: Identify the element wish to modify
   var circle = d3.select('circle');
 
+  // STEP #2: Use the attr method to change the element's fill
+  // from blue to green
   circle.attr('fill', 'orange');
 
-</code></pre>
+            </code></pre>
+          </section>
 
+            <section>
+              <h3>Selectors</h3>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code> element</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <element></element> </code></pre> </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code>  #id</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <any id="id"></any></code></pre> </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code>  .class</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <any class="class"></any></code></pre> </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code>  [attribute = "value"]</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <any attribute="value"></any></code></pre> </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code>  parent > child</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <parent> <child></child> </parent></code></pre> </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"> <pre class="css"><code>  #ancestor  .descendent</code></pre> </div>
+                -->
+                <div class="col-sm-7 pull-right"> <pre class="html"><code>  <any id="ancestor">
+    ...
+      <any class="descendent"></any>
+    ...
+  </any> </code></pre> </div>
+              </div>
+            </section>
+
+            <section>
+              <h3>Selectors</h3>
+              <hr>
+              <div class="text-center practice">
+                <foo id="bar"> Select Me </foo>
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                Practice Selecting This
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <pre class="html"><code>
+  <foo id="bar">
+    Select Me
+  </foo>
+                </code></pre>
+                <pre class="javascript"><code>
+  // Pure Javscript
+  document.querySelector('foo#bar');
+
+  // Jquery
+  $('foo#bar');
+
+  // d3
+  d3.select('foo#bar');
+                </code></pre>
+              </div>
+            </section>
+
+            <section>
+              <h1 id="slide-title">Some Text</h1>
+              <pre class="javascript"><code>
+  d3.select('#slide-title').html('A Better Title');
+  d3.select('#slide-title').attr('class', 'text-danger');
+  d3.select('#slide-title').style('font-family', 'Cursive');
+  d3.select('#slide-title').remove();
+              </code></pre>
+            </section>
+        </section>
+
+        <section>
+          <h1 class="huge">Transitions</h1>
         </section>
 
         <section data-codeid="circle-1">
-          <svg width="202" height="202">
-            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+          <svg width="100%" height="200">
+            <circle cx="100" cy="100" r="30" fill="orange"></circle>
           </svg>
 
           <pre class="javascript"><code>
-  var t = d3.transition()
-    .duration(750)
-    .ease(d3.easeLinear);
-
+  // STEP #1: Make the circle bigger
+  // Attr changes called after .transition will happen
+  // gradually
   d3.select('circle')
-    .transition(t)
-      .attr('cx', 100)
-      .attr('cy', 100)
-    .transition(t)
-      .attr('r', 100)
     .transition()
-      .attr('r', 0);
+    .attr('r', 100);
+
+  // STEP #2: Make the circle purple as it moves to the right
+  // If multiple attr changes occur after .transition they
+  // happen at the same time
+  d3.select('circle')
+    .transition()
+    .attr('cx', 500)
+    .attr('fill', "purple");
+
+  // STEP #3: Make the circle hot pink then make it smaller
+  // Separating groups of attr changes with .transition
+  // method calls will create stepped animations
+  d3.select('circle')
+    .transition()
+    .attr('fill', '#E91E63')
+    .transition()
+    .attr('r', 10);
 
           </code></pre>
 
@@ -148,141 +370,259 @@ d3.select('foo#bar');                   // d3
           </small>
         </section>
 
-        <section data-codeid="circle-2">
-          <svg width="800" height="200">
-            <circle cx="50" cy="50" r="30" fill="blue"></circle>
+        <section class="huge-text">
+          <h1>Binding Data to Elements</h1>
+        </section>
+
+        <section>
+          <svg width="100%" height="200">
+            <circle cx="500" cy="100" r="10" fill="#E91E63"></circle>
+          </svg>
+          <div class="row">
+            <div class="col-md-6">
+              <pre class="javascript" style="width: 100%"><code>
+
+  var my_data = [30];
+
+  d3.selectAll('circle')
+    .data(my_data);
+
+              </code></pre>
+            </div>
+            <div class="col-md-6">
+              <img src="./media/images/circle-data.png"/>
+            </div>
+          </div>
+        </section>
+
+        <section class="huge-text">
+          <h1>So what?</h1>
+        </section>
+
+
+        <section>
+          <svg width="100%" height="200">
+            <circle cx="500" cy="100" r="10" fill="#E91E63"></circle>
           </svg>
 
-          <pre class="javascript"><code>
-  var t = d3.transition()
-    .duration(750)
-    .ease(d3.easeLinear);
+          <pre class="javascript" style="width: 100%"><code>
 
-  var svg = {
-    w: d3.select('svg').attr('width'),
-    h: d3.select('svg').attr('height')
-  };
+  var my_data = [30]
 
-  function randomNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function changeColor() {
-    var radius = randomNumber(0, d3.min([svg.w, svg.h])/2);
-
-   return d3.select('circle')
-    .transition(t)
-    .attr('r', radius)
-    .attr('cx', randomNumber(radius, svg.w - radius))
-    .attr('cy', randomNumber(radius, svg.h - radius))
-    .attr('fill', function () {
-     var r = randomNumber(1, 255),
-         g = randomNumber(1, 255),
-         b = randomNumber(1, 255);
-     return d3.rgb(r,g,b);
-    });
-  }
-
-  setInterval(changeColor, 1000);
-
-</code></pre>
-
-          <small>
-            <a href="https://github.com/d3/d3/blob/master/API.md#transitions-d3-transition">#transitions-d3-transition</a>
-          </small>
-        </section>
-
-        <section>
-          <h1>Creating New Elements</h1>
-          <hr>
-          <ol>
-            <li class="fragment" data-fragment-index="1"> Selection.append </li>
-            <li class="fragment" data-fragment-index="2"> Selection.data </li>
-          </ol>
-        </section>
-
-        <section>
-          <h3>Selection.append</h3>
-          <svg width="800" height="200">
-            <circle cx="50" cy="50" r="30" fill="blue"></circle>
-          </svg>
-          <pre class="javascript"><code>
-  d3.select('svg')      // Select container for new element
-    .append('rect')     // Define element type
-      .attr('x', 500)   // Set element attributes
-      .attr('y', 100)
-      .attr('height', 60)
-      .attr('width', 200)
-      .attr('fill', 'orange');
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>Selection.data</h3>
-          <svg width="800" height="200"> </svg>
-          <pre class="javascript"><code>
-  var words = ["Hello", "World"];
-
-  var text = d3.select('svg')   // Select container
-    .selectAll('words')         // Dummy selector
-    .data(words)                // Array of data
-    .enter().append('text')     // Make elements
-    .attr('x', 10)
-    .attr('y', 55)
-    .text('my words')
-    .style('font-size', '20px')
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>Selection.data</h3>
-          <svg width="800" height="200"> </svg>
-          <pre class="javascript"><code>
-  var words = ["Hello", "World"];
-
-  var text = d3.select('svg')   // Select container
-    .selectAll('words')         // Dummy selector
-    .data(words)                // Array of data
-    .enter().append('text')     // Make elements
-    .text(function(d,i) {
+  d3.selectAll('circle')
+    .data(my_data)
+    .transition()
+    .attr('r', function(d, i) {
+      // whenever a function is passed into a method of
+      // a d3 attribute function the first parameter (d)
+      // always represents the data bound to that element
+      // and the second (i) always represents the index
+      // of that element in the selection
       return d;
-    })
-    .attr('x', 10)
-    .attr('y', function(d, i) {
-      return 55 * (i+1);
-    })
-    .style('font-size', '20px')
+    });
+
           </code></pre>
         </section>
 
-    <section>
-      <h3>Selection.data</h3>
-      <svg width="800" height="200"> </svg>
-      <pre class="javascript"><code>
-  var words = [
-    { text: "Hello", color: "red" },
-    { text: "World", color: "blue" }
+        <section>
+          <svg width="100%" height="200">
+            <circle cx="500" cy="100" r="30" fill="#E91E63"></circle>
+          </svg>
+
+          <pre class="javascript" style="width: 100%"><code>
+
+  var my_data = [
+    { stat_1: 100, stat_2: 50 }
   ];
 
-  var text = d3.select('svg')   // Select container
-    .selectAll('words')           // Dummy selector
-    .data(words)                  // Array of data
-    .enter().append('text')       // Make elements
-    .text(function(d,i) {
-      return d.text;
+  d3.selectAll('circle')
+    .data(my_data)
+    .transition()
+    .attr('r', function(d, i) {
+      return d.stat_1;
     })
-    .attr('x', 10)
-    .attr('y', function(d, i) {
-      return 55 * (i+1);
-    })
-    .style('font-size', '20px')
-    .style('fill', function(d) {
-      return d.color;
+    .attr('fill', function(d, i) {
+      if (d.stat_2 >= 100) {
+        return 'red';
+      } else {
+        return 'blue';
+      }
     });
-      </code></pre>
-    </section>
+
+          </code></pre>
+        </section>
+
+        <section class="huge-text">
+          <h1 > Creating <br>New <br>Elements</h1>
+        </section>
+
+        <section>
+          <svg width="100%" height="200">
+            <circle cx="500" cy="100" r="100" fill="blue"></circle>
+          </svg>
+
+          <pre class="javascript" style="width: 100%"><code>
+  // Create elements by adding an additional data object
+  var my_data = [
+    { stat_1: 40, stat_2: 10 },
+    { stat_1: 30, stat_2: 250 },
+    { stat_1: 130, stat_2: 40 }
+  ];
+
+  // Have to adjust to our selection to first select the
+  // container then select the child elements we are
+  // interested in
+  var circles= d3.select('svg')
+    .selectAll('circle')
+    .data(my_data);
+
+  // Only Happens to the new circles
+  var newCircles = circles.enter()
+    .append('circle');
+
+  // Update the definition of circles var to include
+  // the new circles
+  circles = circles.merge(newCircles)
+    .attr('cy', 100)
+    .attr('cx', function(d, i) {
+      return (i+1) * 200;
+    })
+    .transition()
+    .attr('r', function(d, i) {
+      return d.stat_1;
+    })
+    .attr('fill', function(d, i) {
+      if (d.stat_2 >= 100) {
+        return 'red';
+      } else {
+        return 'blue';
+      }
+    });
+
+          </code></pre>
+        </section>
+
+        <section  class="huge-text">
+          <h1>Removing Elements</h1>
+        </section>
+
+        <section>
+          <svg width="100%" height="200">
+            <circle cx="200" cy="100" r="40" fill="blue"></circle>
+            <circle cy="100" cx="400" r="30" fill="red"></circle>
+            <circle cy="100" cx="600" r="130" fill="blue"></circle>
+          </svg>
+
+          <pre class="javascript" style="width: 100%"><code>
+
+  var my_data = [
+    { stat_1: 150, stat_2: 300 },
+    { stat_1: 30, stat_2: 115 }
+  ];
+
+  var circles = d3.select('svg')
+    .selectAll('circle')
+    .data(my_data);
+
+  // Get rid of the extra circle
+  circles.exit()
+    .remove();
+
+  // Won't be needed because the data is getting smaller
+  // But we will include it for good measure
+  var newCircles = circles.enter()
+    .append('circle');
+
+  circles.merge(newCircles)
+    .attr('cy', 100)
+    .attr('cx', function(d, i) {
+      return (i+1) * 200;
+    })
+    .transition()
+    .attr('r', function(d, i) {
+      return d.stat_1;
+    })
+    .attr('fill', function(d, i) {
+      if (d.stat_2 >= 100) {
+        return 'red';
+      } else {
+        return 'blue';
+      }
+    });
+
+          </code></pre>
+        </section>
+
+        <section class="huge-text">
+          <h1> Mapping With d3.js</h1>
+        </section>
+
+        <section>
+          <div class="row">
+            <div class="col-md-7">
+              <img src="./media/images/map.svg" class="no-border"/>
+            </div>
+            <div class="col-md-5 text-left">
+              <ul>
+                <li>SVG Paths</li>
+                <li>geoJson Data</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>SVG Paths</h3>
+          <svg width="950px" height="200">
+            <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent" transform="translate(100, 0)"/>
+            <path d="M70 10 C 70 20, 120 20, 120 10" stroke="black" fill="transparent" transform="translate(400, 0)"/>
+            <path d="M130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent" transform="translate(675 0)"/>
+            <path d="M10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent" transform="translate(100, 25)"/>
+            <path d="M70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent" transform="translate(400, 25)"/>
+            <path d="M130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent" transform="translate(675, 25)"/>
+            <path d="M10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent" transform="translate(100, 50)"/>
+            <path d="M70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent" transform="translate(400, 50)"/>
+            <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent" transform="translate(675, 50)"/>
+          </svg>
+          <pre class="html" style="font-size: 0.3em !important"><code>
+  <svg width="100%" height="200">
+    <!-- Require a d attribute -->
+    <!-- EDITING RAW PATH DATA IS NOT RECOMENDED-->
+    <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent" transform="translate(100, 0)"/>
+    <path d="M70 10 C 70 20, 120 20, 120 10" stroke="black" fill="transparent" transform="translate(400, 0)"/>
+    <path d="M130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent" transform="translate(675 0)"/>
+    <path d="M10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent" transform="translate(100, 25)"/>
+    <path d="M70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent" transform="translate(400, 25)"/>
+    <path d="M130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent" transform="translate(675, 25)"/>
+    <path d="M10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent" transform="translate(100, 50)"/>
+    <path d="M70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent" transform="translate(400, 50)"/>
+    <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent" transform="translate(675, 50)"/>
+  </svg>
+          </code></pre>
+          <small>
+            <a class="small" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">MDN-SVG Paths Tutorial</a>
+          </small>
+        </section>
+        <section>
+          <h3>SVG Paths</h3>
+          <div class="row">
+            <div class="col-md-5">
+              <br>
+              <svg width="250" height="200">
+                <path stroke="black" stroke-width="2" fill="white"
+                  d="M102.60495129378978,41.111456005620084L107.48007477363035,43.40442655240713L110.34779908764358,49.852719163354095L117.1055517050745,51.74005919689603L123.85095756668397,53.64763053110596L130.58391884779985,55.57529859745728L137.30433957152582,57.522928197713554L148.48846177818314,63.102288966657625L151.92971001104752,61.8637047725756L163.1138322177053,65.57721569266823L166.12491787647696,70.3126783170892L171.57359145510782,74.83224316673818L171.28681640571267,81.38879865540412L168.84925466579216,86.49690300443376L175.01486586791134,87.3130634043739L172.57730412799083,92.6103513701753L176.59210245964596,96.47308439630069L175.58841596670163,100.93694519269866L170.5699049621635,101.74755461408677L166.26830540117453,110.24023171306317L164.6910688094399,116.08456951562403L167.70218064815026,117.0905693542536L171.7169789798054,113.26514493346417L176.01855236085567,105.99814961044103L181.46722593948698,103.16533989888171L185.7687993205368,93.8309356027371L191.21747289916766,91.79627403808627L190.78731032507494,96.67619294346332L187.0592870428154,101.13962657187744L179.74660182305433,116.48700420888781L177.739202657227,124.92139993369165L177.88259018192457,130.92571611222456L175.1582533926089,132.92346166545872L172.7206916526884,141.0948242689417L173.58099062093515,148.04606404761034L171.28681640571267,152.60194282531052L168.13234322224298,163.85166117878907L168.84925466579216,172.69238773841812L172.00375402920054,180.52103892855212L171.00004135631707,190.85149118644267L158.09530812319736,190.81399239983216L145.1905748900772,190.85149118644267L133.0772087907053,190.6064686442669L120.96152938275918,190.42752716263954L108.84425759251735,190.31470505364086L96.7261151410662,190.26802648331886L94.86210349993598,185.7897625401672L85.54201911434757,181.69295987234136L83.53461994852023,176.02297328956638L82.67429480033434,167.9817644919492L85.82879416374271,163.6547935276394L81.95735717684647,160.1081790926578L81.67060830739001,154.77745490547045L80.23673306041428,150.62228312644766L80.95367068390169,144.8711228557329L75.935159679364,136.9133352334038L71.77697382301085,135.5177295044473L64.32090107855265,129.32622065359533L63.03041335627404,124.52051014005178L55.000816692964236,120.50752294503513L52.27647990364858,116.48700420888781L46.82780632501772,115.88330538099854L39.94528367934936,109.2309975532578L41.80929532047958,95.6604924412552L41.23574522168883,89.35204655779171L44.246857060399634,83.63788708279185L40.94899635223237,78.93246042405121L37.93788451352157,78.52282881877977L38.36804708761474,73.18987941041223L44.39024458509721,65.16492538612238L51.84631732955586,62.07018657469803L53.42355392129048,59.79779847931468L53.42355392129048,37.35386013441257L58.728839975223764,34.21729838184319L60.7362391410511,35.890745729909895L66.61507529377513,36.30889529667115L75.70572270071807,33.045914877949144L84.82508149085925,29.81809242375357L91.56421661183003,26.249898794025967L93.85841700699166,28.979065862867174L90.27375506949011,34.008021839023286L98.87690183159111,40.48569658052975Z"/>
+              </svg>
+              <br>
+            </div>
+            <div class="col-md-7">
+              <pre class="html" style="font-size: 0.3em !important"><code>
+  <svg width="250" height="200">
+    <path stroke="black" stroke-width="2" fill="white" d="M102.60495129378978,41.111456005620084L107.48007477363035,43.40442655240713L110.34779908764358,49.852719163354095L117.1055517050745,51.74005919689603L123.85095756668397,53.64763053110596L130.58391884779985,55.57529859745728L137.30433957152582,57.522928197713554L148.48846177818314,63.102288966657625L151.92971001104752,61.8637047725756L163.1138322177053,65.57721569266823L166.12491787647696,70.3126783170892L171.57359145510782,74.83224316673818L171.28681640571267,81.38879865540412L168.84925466579216,86.49690300443376L175.01486586791134,87.3130634043739L172.57730412799083,92.6103513701753L176.59210245964596,96.47308439630069L175.58841596670163,100.93694519269866L170.5699049621635,101.74755461408677L166.26830540117453,110.24023171306317L164.6910688094399,116.08456951562403L167.70218064815026,117.0905693542536L171.7169789798054,113.26514493346417L176.01855236085567,105.99814961044103L181.46722593948698,103.16533989888171L185.7687993205368,93.8309356027371L191.21747289916766,91.79627403808627L190.78731032507494,96.67619294346332L187.0592870428154,101.13962657187744L179.74660182305433,116.48700420888781L177.739202657227,124.92139993369165L177.88259018192457,130.92571611222456L175.1582533926089,132.92346166545872L172.7206916526884,141.0948242689417L173.58099062093515,148.04606404761034L171.28681640571267,152.60194282531052L168.13234322224298,163.85166117878907L168.84925466579216,172.69238773841812L172.00375402920054,180.52103892855212L171.00004135631707,190.85149118644267L158.09530812319736,190.81399239983216L145.1905748900772,190.85149118644267L133.0772087907053,190.6064686442669L120.96152938275918,190.42752716263954L108.84425759251735,190.31470505364086L96.7261151410662,190.26802648331886L94.86210349993598,185.7897625401672L85.54201911434757,181.69295987234136L83.53461994852023,176.02297328956638L82.67429480033434,167.9817644919492L85.82879416374271,163.6547935276394L81.95735717684647,160.1081790926578L81.67060830739001,154.77745490547045L80.23673306041428,150.62228312644766L80.95367068390169,144.8711228557329L75.935159679364,136.9133352334038L71.77697382301085,135.5177295044473L64.32090107855265,129.32622065359533L63.03041335627404,124.52051014005178L55.000816692964236,120.50752294503513L52.27647990364858,116.48700420888781L46.82780632501772,115.88330538099854L39.94528367934936,109.2309975532578L41.80929532047958,95.6604924412552L41.23574522168883,89.35204655779171L44.246857060399634,83.63788708279185L40.94899635223237,78.93246042405121L37.93788451352157,78.52282881877977L38.36804708761474,73.18987941041223L44.39024458509721,65.16492538612238L51.84631732955586,62.07018657469803L53.42355392129048,59.79779847931468L53.42355392129048,37.35386013441257L58.728839975223764,34.21729838184319L60.7362391410511,35.890745729909895L66.61507529377513,36.30889529667115L75.70572270071807,33.045914877949144L84.82508149085925,29.81809242375357L91.56421661183003,26.249898794025967L93.85841700699166,28.979065862867174L90.27375506949011,34.008021839023286L98.87690183159111,40.48569658052975Z"/>
+  </svg>
+              </code></pre>
+            </div>
+          </div>
+
+        </section>
 
   </div>
 </div>
@@ -315,30 +655,6 @@ d3.select('foo#bar');                   // d3
           return _d3.select('section.present').selectAll(selector);
         }
       });
-
-      code= {};
-
-      // _d3.selectAll('[data-codeid]')
-      //   .each(function() {
-      //     var slide =_d3.select(this);
-      //     var codeId = slide.attr('data-codeid');
-      //     _d3.request('examples/'+codeId+'/main.js')
-      //         .get(function(d) {
-      //           slide.select('code').html(d.response);
-      //           code[codeId] = d.response;
-      //         });
-      // })
-
-      // Reveal.addEventListener( 'slidechanged', function(e) {
-      //   window.run = function() { };
-      //   var codeId = _d3.select(e.currentSlide).attr('data-codeid');
-      //   if (code[codeId]) {
-      //     window.run = new Function("console.log('"+codeId+"');" + code[codeId]);
-      //   } else {
-      //     window.run = function() { };
-      //   }
-      //   window.run();
-      // });
 
     </script>
   </body>

@@ -4,9 +4,74 @@
 @import "./reveal/reveal.scss";
 @import "./theme/simple";
 
+.reveal .slides{
+  section {
+    &.huge-text {
+      font-size: 120%;
+      text-align: left;
+    }
+    .no-border {
+       border: none;
+       box-shadow: none;
+    }
 
+     .fragment.highlight-orange {
+      opacity: 1;
+      visibility: visible;
+      &.visible {
+        color: orange;
+      }
+    }
+    .fragment.highlight-bold {
+     opacity: 1;
+     visibility: visible;
+     &.visible {
+       font-weight: bold;
+     }
+   }
+   blockquote {
+       width: 100%;
+       margin: 0px;
+       padding: 0px;
+       font-style: normal;
+       box-shadow: none;
+   }
 
-.reveal svg{
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    svg {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    pre {
+      width: 100% !important;
+      font-size: 0.4em !important;
+    }
+
+    ul>li {
+      font-size: 75%;
+      margin-bottom: 10px;
+    }
+    
+    .upper-case {
+      text-transform: uppercase;
+    }
+    .practice {
+      align-items: center;
+      flex-direction: row;
+      display: flex;
+      width: 50%;
+      margin-left: 25%;
+      font-size: 24px;
+      foo#bar {
+        height: 50px;
+        width: 200px;
+        background-color: #eee;
+        display: inline-block;;
+        border-radius: 3px;
+        border: 2px dashed #bbb;
+        font-size: medium;
+        padding: 10px;
+        font-family: courier;
+      }
+    }
+  }
 }
