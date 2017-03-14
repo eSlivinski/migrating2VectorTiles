@@ -10430,13 +10430,6 @@ body {
   .reveal .slides section .fragment.highlight-bold.visible {
     font-weight: bold; }
 
-.reveal .slides section blockquote {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  font-style: normal;
-  box-shadow: none; }
-
 .reveal .slides section .title {
   font-size: 48px; }
   .reveal .slides section .title .title-divider {
@@ -10460,27 +10453,27 @@ body {
 .reveal .slides section .upper-case {
   text-transform: uppercase; }
 
-.reveal .slides section .practice {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 50%;
-  margin-left: 25%;
-  font-size: 24px; }
-  .reveal .slides section .practice foo#bar {
-    height: 50px;
-    width: 200px;
-    background-color: #eee;
-    display: inline-block;
-    border-radius: 3px;
-    border: 2px dashed #bbb;
-    font-size: medium;
-    padding: 10px;
-    font-family: courier; }
+.reveal .slides section .code-link {
+  font-size: 60%;
+  display: block; }
+
+.reveal .slides section iframe.gallery {
+  width: 100%;
+  height: 400px; }
+
+.reveal .slides section .heading-row {
+  background-color: #1A237E;
+  color: white;
+  margin-right: -30px;
+  margin-left: -30px;
+  padding-left: 30px; }
+  .reveal .slides section .heading-row img {
+    height: 100px;
+    background: none; }
+  .reveal .slides section .heading-row p {
+    margin-top: 20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    padding-left: 20px; }
+  .reveal .slides section .heading-row a, .reveal .slides section .heading-row a:hover {
+    color: #fff; }

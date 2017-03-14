@@ -4,6 +4,7 @@
 @import "./reveal/reveal.scss";
 @import "./theme/simple";
 
+
 .reveal .slides{
   section {
     &.huge-text {
@@ -11,30 +12,24 @@
       text-align: left;
     }
     .no-border {
-       border: none;
-       box-shadow: none;
+      border: none;
+      box-shadow: none;
     }
 
-     .fragment.highlight-orange {
+    .fragment.highlight-orange {
       opacity: 1;
       visibility: visible;
       &.visible {
         color: orange;
       }
     }
+
     .fragment.highlight-bold {
      opacity: 1;
      visibility: visible;
      &.visible {
        font-weight: bold;
      }
-   }
-   blockquote {
-       width: 100%;
-       margin: 0px;
-       padding: 0px;
-       font-style: normal;
-       box-shadow: none;
    }
 
    .title {
@@ -65,24 +60,55 @@
     .upper-case {
       text-transform: uppercase;
     }
-    .practice {
-      align-items: center;
-      flex-direction: row;
-      display: flex;
-      width: 50%;
-      margin-left: 25%;
-      font-size: 24px;
-      foo#bar {
-        height: 50px;
-        width: 200px;
-        background-color: #eee;
-        display: inline-block;;
-        border-radius: 3px;
-        border: 2px dashed #bbb;
-        font-size: medium;
-        padding: 10px;
-        font-family: courier;
+
+    .code-link {
+      font-size: 60%;
+      display: block;
+    }
+
+    iframe.gallery {
+      width: 100%;
+      height: 400px;
+    }
+    .heading-row {
+      background-color: #1A237E;
+      color: white;
+      margin-right: -30px;
+      margin-left: -30px;
+      padding-left: 30px;
+      img {
+        height: 100px;
+        background: none;
+      }
+      p {
+        margin-top: 20px;
+        padding-left: 20px;
+        margin-top: 20px;
+        padding-left: 20px;
+      }
+      a, a:hover {
+        color: #fff;
       }
     }
+    // .practice {
+    //   align-items: center;
+    //   flex-direction: row;
+    //   display: flex;
+    //   width: 50%;
+    //   margin-left: 25%;
+    //   font-size: 24px;
+    //
+    //   foo#bar {
+    //     height: 50px;
+    //     width: 200px;
+    //     background-color: #eee;
+    //     display: inline-block;;
+    //     border-radius: 3px;
+    //     border: 2px dashed #bbb;
+    //     font-size: medium;
+    //     padding: 10px;
+    //     font-family: courier;
+    //   }
+    // }
   }
 }

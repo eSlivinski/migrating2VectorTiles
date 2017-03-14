@@ -100,7 +100,7 @@
       pause: true,
 
       // Flags if speaker notes should be visible to all viewers
-      showNotes: true,
+      showNotes: false,
 
       // Number of milliseconds between automatically proceeding to the
       // next slide, disabled when set to 0, this value can be overwritten
