@@ -3,6 +3,11 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <style>
+      .state {
+        stroke: #525252;
+      }
+    </style>
   </head>
   <body>
   </body>
@@ -21,7 +26,7 @@
 
   var projection = d3.geoAlbersUsa();
 
-  // geoPath is a function that converts our geojson data into 
+  // geoPath is a function that converts our geojson data into
   var path = d3.geoPath()
     .projection(projection);
 
@@ -31,7 +36,6 @@
       .enter().append("path")
       .attr('class', 'state')
       .attr("d", path)
-      .attr('stroke', '#525252')
       .attr('fill', function(d) {
         if (d.properties.stat_1 <= 25) {
           return '#ffffcc'; // pale yellow
