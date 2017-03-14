@@ -20,28 +20,22 @@
   <body>
     <div class="reveal">
       <div class="slides">
+
         <section>
-          <div class="row" style="background-color: #CDDC39; color: white; margin-right: -30px; margin-left: -30px; padding-left: 30px;">
-            <img src="./media/images/d3_logo.png" class="no-border pull-left" style="height: 100px; background: none;"/>
-            <span class="pull-left text-left" style="margin-top: 20px; padding-left: 20px;">Lizzi Slivinski<br>
-              <small>March 14, 2017</small>
-            </span>
+          <div class="row heading-row" style="">
+            <img src="./media/images/d3_logo.png" class="no-border pull-left"/>
+            <p class="pull-left text-left" style="">Lizzi Slivinski<br> <small>March 14, 2017</small> </p>
           </div>
-          <iframe src="./gallery.html" style="width: 100%; height: 500px;" scrolling="no"></iframe>
 
-        </section>
+          <br>
+          <iframe class="gallery" src="./gallery.html" scrolling="no"></iframe>
+          <br>
 
-        <section>
-          <h1>D3.js</h1>
-          <hr>
-          <p>
-            <br>
-            <a href="mailto:eslivinski@gmail.com"><i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i> eslivinski@gmail.com</a><br>
-            <a href="https://github.com/eSlivinski"><i class="fa fa-fw fa-github" aria-hidden="true"></i> @eslivinski</a><br>
+          <small>
             <a href="https://eslivinski.github.io/d3.js"><i class="fa fa-fw fa-slideshare" aria-hidden="true"></i> eslivinski.github.io/d3.js </a><br>
-            <a href="./examples.html"><i class="fa fa-fw fa-codepen" aria-hidden="true"></i> eslivinski.github.io/d3.js/examples.html </a><br>
+            <a href="./examples.html"><i class="fa fa-fw fa-codepen" aria-hidden="true"></i> eslivinski.github.io/d3.js/examples.html </a>
+          </small>
 
-          </p>
         </section>
 
         <section>
@@ -68,6 +62,14 @@
             <span class="fragment highlight-orange highlight-bold" data-fragment-index="1">D</span>riven
             <span class="fragment highlight-orange highlight-bold" data-fragment-index="1">D</span>ocuments
           </h2>
+          <aside class="notes">
+            <ul>
+              <li>D3 = Data Driven Documents</li>
+              <li><strong>Document</strong> = DOM (Document Object Model)</li>
+              <li>Basic idea = modify elements based on a dataset</li>
+              <li>Not a wizard, but a tool that gives you the means to create vizualizations</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -109,10 +111,23 @@
             <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element">SVG Elements</a><br>
             <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute">SVG Attributes</a>
           </small>
+          <aside class="notes">
+            <ul>
+              <li>SVG = Scaleable Vector Graphic</li>
+              <li>XML based -> Looks like HTML</li>
+              <li>You can export into svg format in Illustrator and Drop the contents of the file right into an HTML doc</li>
+              <li>Can be used with CSS and animated with JS</li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
           <h1>Basic SVG Shapes </h1>
+          <aside class="notes">
+            <ul>
+              <li>Go through some examples of SVG shapes so you can get a taste of what the general syntax for svg </li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -139,12 +154,20 @@
   </svg>
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/bqRZex" target="_blank">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/bqRZex
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/bqRZex" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/bqRZex
+          </a>
+
+          <aside class="notes">
+            <ul>
+              <li> To define a circle you first need to give the SVG where the circle lives a width and height</li>
+              <li> Then you need to give the circle a radius (r) and a position within the svg(cx &amp; cy or transform)</li>
+              <li> <strong>Point out which is which</strong></li>
+              <li> The position of a circle is relative to its center</li>
+              <li> <strong>Open up developer tools and modify the attributes</strong></li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -169,12 +192,25 @@
   </svg>
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/qrjGdw">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/qrjGdw
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/qrjGdw" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/qrjGdw
+          </a>
+
+          <aside class="notes">
+            <ul>
+              <li> To define a rectangle you need to give it a width, height, and position
+                <ul>
+                  <li>The first rectangle uses x and y to give the position (similar to what we did for the circles) </li>
+                  <li>The second uses the transform attribute and translates (moves) it to (600, 10) (x,y)</li>
+                  <li> ANY svg element can use transform generally doesn't make a difference</li>
+                  <li>The position of rectangle is relative to its top-right corner</li>
+                </ul>
+              </li>
+              <li>Stroke position is always aligned so the middle of the stroke is in the middle of the svg element</li>
+              <li>The position of the svg element does not include the stroke</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -205,12 +241,18 @@
   </svg>
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/JWJqGz">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/JWJqGz
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/JWJqGz" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/JWJqGz
+          </a>
+
+          <aside class="notes">
+            <ul>
+              <li> To define text you need to give a position and you will probably want to give it text too</li>
+              <li> In this example you can see that just like rectangles, position can be set with x/y or transform </li>
+              <li> Also in this example you can see an example of what I mentioned earlier about using CSS with svgs </li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -232,12 +274,17 @@
   circle.attr('fill', 'orange');
 
           </code></pre>
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/zZzQoy">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/zZzQoy
-            </a>
-          </small>
+
+          <a href="http://codepen.io/eslivinski/pen/zZzQoy" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/zZzQoy
+          </a>
+
+          <aside class="notes">
+            <ul>
+              <li><strong>Show in devtools what comes back from a selection</strong></li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -260,12 +307,16 @@
 
             </code></pre>
 
-            <small>
-              <a href="http://codepen.io/eslivinski/pen/GWEarq">
-                <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-                codepen.io/eslivinski/pen/GWEarq
-              </a>
-            </small>
+            <a href="http://codepen.io/eslivinski/pen/GWEarq" class="code-link" target="_blank">
+              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+              codepen.io/eslivinski/pen/GWEarq
+            </a>
+
+            <aside class="notes">
+              <ul>
+                <li><strong>Show in devtools what comes back from a selection</strong></li>
+              </ul>
+            </aside>
           </section>
 
             <section>
@@ -377,12 +428,10 @@
 
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/jBwoaz">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/jBwoaz
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/jBwoaz" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/jBwoaz
+          </a>
 
         </section>
 
@@ -412,12 +461,10 @@
             </div>
           </div>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/zZzQRX">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/zZzQRX
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/zZzQRX" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/zZzQRX
+          </a>
         </section>
 
         <section class="huge-text">
@@ -459,12 +506,10 @@
     });
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/NpgVYX">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/NpgVYX
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/NpgVYX" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/NpgVYX
+          </a>
 
         </section>
 
@@ -495,17 +540,15 @@
     });
           </code></pre>
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/NpgVMX">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/NpgVMX
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/NpgVMX" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/NpgVMX
+          </a>
 
         </section>
 
         <section class="huge-text">
-          <h1 > Creating <br>New <br>Elements</h1>
+          <h1>Creating <br>New <br>Elements</h1>
         </section>
 
         <section>
@@ -556,12 +599,10 @@
           </code></pre>
 
 
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/bqRyzL">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/bqRyzL
-            </a>
-          </small>
+          <a href="http://codepen.io/eslivinski/pen/bqRyzL" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/bqRyzL
+          </a>
         </section>
 
         <section  class="huge-text">
@@ -613,12 +654,11 @@
       }
     });
           </code></pre>
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/YZQbMp">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/YZQbMp
-            </a>
-          </small>
+
+          <a href="http://codepen.io/eslivinski/pen/YZQbMp" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/YZQbMp
+          </a>
         </section>
 
         <section class="huge-text">
@@ -627,17 +667,30 @@
 
         <section>
           <img src="./media/images/map.svg" class="no-border"/>
-          <small>
-            <a href="http://codepen.io/eslivinski/pen/WpOqeK">
-              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-              codepen.io/eslivinski/pen/WpOqeK
-            </a>
-          </small>
+
+          <a href="http://codepen.io/eslivinski/pen/WpOqeK" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/WpOqeK
+          </a>
         </section>
 
         <section>
-          { Plug Maptime }
+          <h2>Lizzi Slivinski</h2>
+          <p>
+            <a href="mailto:eslivinski@gmail.com"><i class="fa fa-fw fa-envelope-o" aria-hidden="true"></i> eslivinski@gmail.com</a><br>
+            <a href="https://github.com/eSlivinski"><i class="fa fa-fw fa-github" aria-hidden="true"></i> @eslivinski</a><br>
+          </p>
+        <br>
+        <br>
+        <div class="row heading-row">
+          <p>
+            <a href="https://eslivinski.github.io/d3.js"><i class="fa fa-fw fa-slideshare" aria-hidden="true"></i> eslivinski.github.io/d3.js </a><br>
+            <a href="./examples.html"><i class="fa fa-fw fa-codepen" aria-hidden="true"></i> eslivinski.github.io/d3.js/examples.html </a>
+          </p>
+        </div>
         </section>
+
+        <section data-background-image="media/images/maptime.png" data-background-size="contain"></section>
   </div>
 </div>
 
@@ -670,6 +723,25 @@
         }
       });
 
+      function resizeCode (e) {
+        var slide = _d3.select(e.currentSlide),
+            codeBlocks = slide.select('pre code.hljs')
+            remainingHeight = slide.node().offsetHeight;
+
+        if (codeBlocks.size()) {
+          slide.selectAll(function() { return this.childNodes; })
+          .each(function() { remainingHeight -= (this.offsetHeight||0); });
+
+          codeBlocks.attr('style', 'max-height:' + remainingHeight/codeBlocks.size() + 'px');
+        }
+      }
+      //
+      Reveal.addEventListener( 'ready', function(e) {
+        Reveal.addEventListener( 'slidechanged', resizeCode);
+        setTimeout(function() {
+          resizeCode(e);
+        },2000);
+      });
     </script>
   </body>
 </html>
