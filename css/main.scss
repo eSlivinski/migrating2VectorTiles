@@ -37,6 +37,17 @@
        box-shadow: none;
    }
 
+   .title {
+     font-size: 48px;
+     .title-divider {
+       color: orange;
+     }
+     .subtitle {
+       font-size: 24px;
+       color: #aaa;
+     }
+   }
+
     svg {
       border: 1px solid #ccc;
       border-radius: 3px;
@@ -50,7 +61,7 @@
       font-size: 75%;
       margin-bottom: 10px;
     }
-    
+
     .upper-case {
       text-transform: uppercase;
     }

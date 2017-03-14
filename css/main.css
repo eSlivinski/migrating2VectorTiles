@@ -10437,6 +10437,14 @@ body {
   font-style: normal;
   box-shadow: none; }
 
+.reveal .slides section .title {
+  font-size: 48px; }
+  .reveal .slides section .title .title-divider {
+    color: orange; }
+  .reveal .slides section .title .subtitle {
+    font-size: 24px;
+    color: #aaa; }
+
 .reveal .slides section svg {
   border: 1px solid #ccc;
   border-radius: 3px; }

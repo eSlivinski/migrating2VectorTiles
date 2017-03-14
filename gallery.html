@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <div class="container" style="text-align: center;">
+    <iframe src="" style="height: 500px; width: 960px; border: none;" scrolling="no"></iframe>
+  </div>
+</body>
+
+<script>
+var current=0;
+var samples = [
+  'examples/gallery/cluster-force-layout-iv.html',
+  'examples/gallery/fatal-force-hexbins.html',
+  'examples/gallery/force-directed-latice.html',
+  'examples/gallery/omg-particles.html',
+  'examples/gallery/random-data.html',
+  'examples/gallery/voronoi-spirals-iii.html'
+];
+function setSrc () {
+  if (current === samples.length) {
+    current = 0;
+  }
+  document.querySelector('iframe').setAttribute("src",samples[current]);
+  current++
+}
+setSrc();
+setInterval(function() {
+  setSrc();
+}, 8000);
+
+</script>
+
+</html>

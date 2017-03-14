@@ -16,38 +16,40 @@
 
   <script>
   var width = 960;
-  var height = 500;
+var height = 500;
 
-  // Create SVG Container
-  var svg = d3.select("body")
-    .append("svg")
-    .attr('width', width)
-    .attr('height', height)
+/* Create SVG Container */
+var svg = d3.select("body")
+  .append("svg")
+  .attr('width', width)
+  .attr('height', height)
 
-  var projection = d3.geoAlbersUsa();
+var projection = d3.geoAlbersUsa();
 
-  // geoPath is a function that converts our geojson data into
-  var path = d3.geoPath()
-    .projection(projection);
+/* geoPath is a function that converts our geojson data into */
+var path = d3.geoPath()
+  .projection(projection);
 
-  d3.json("./us.geojson", function(err, data) {
-    var states = svg.selectAll("path")
-      .data(data.features)
-      .enter().append("path")
-      .attr('class', 'state')
-      .attr("d", path)
-      .attr('fill', function(d) {
-        if (d.properties.stat_1 <= 25) {
-          return '#ffffcc'; // pale yellow
-        } else if (d.properties.stat_1 <= 50) {
-          return '#a1dab4'; // pale green
-        } else if (d.properties.stat_1 <= 75) {
-          return '#41b6c4'; // blue
-        } else {
-          return '#225ea8'; // dark blue
-        }
-      });
-  });
+var dataUrl = "https://raw.githubusercontent.com/eSlivinski/d3.js/master/examples/map/us.geojson";
 
+d3.json(dataUrl, function(err, data) {
+  var geojson = data;
+  var states = svg.selectAll("path")
+    .data(geojson.features)
+    .enter().append("path")
+    .attr('class', 'state')
+    .attr("d", path)
+    .attr('fill', function(d) {
+      if (d.properties.stat_1 <= 25) {
+        return '#ffffcc'; /* pale yellow */
+      } else if (d.properties.stat_1 <= 50) {
+        return '#a1dab4'; /* pale green */
+      } else if (d.properties.stat_1 <= 75) {
+        return '#41b6c4'; /* blue */
+      } else {
+        return '#225ea8'; /* dark blue */
+      }
+    });
+});
   </script>
 </html>
