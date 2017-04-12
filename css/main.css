@@ -10418,6 +10418,9 @@ body {
   border: none;
   box-shadow: none; }
 
+.reveal .slides section .fade-out.visible {
+  display: none; }
+
 .reveal .slides section .fragment.highlight-orange {
   opacity: 1;
   visibility: visible; }

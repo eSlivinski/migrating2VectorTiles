@@ -25,10 +25,8 @@
         <section>
           <div class="row heading-row" style="">
             <img src="./media/images/d3_logo.png" class="no-border pull-left"/>
-            <p class="pull-left text-left" style="">Lizzi Slivinski<br> <small>March 14, 2017</small> </p>
+            <p class="pull-left text-left" style="">Lizzi Slivinski<br> <small>April 12, 2017</small> </p>
           </div>
-
-          <br>
           <iframe class="gallery" src="./gallery.html" scrolling="no"></iframe>
           <br>
 
@@ -41,10 +39,10 @@
 
         <section>
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-xs-5">
               <img src="./media/images/d3_logo.png" class="no-border"/>
             </div>
-            <div class="col-md-7">
+            <div class="col-xs-7">
               <h3 class="text-left">Today's Game Plan:</h3>
               <ol>
                 <li> d3 background </li>
@@ -54,6 +52,13 @@
               </ol>
             </div>
           </div>
+          <aside class="notes">
+            <ul>
+              <li>Will be working with d3.v4 in this demo</li>
+              <li>Chrome devtools -- other browsers are fine if you are familiar with them</li>
+              <li>Slides are online (hit S) to show speaker view and see the embarassingly large amount of notes I require</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -103,6 +108,15 @@
 
         <section>
           <img src="./media/images/bostock-twitter.png" class="img-rounded"/>
+          <aside class="notes">
+            <ul>
+              <li>Bostock leaves the NYTimes to work on opensource projects fulltime in 2015</li>
+              <li> 1. D3 is hard </li>
+              <li> 2. D3 has a crazy dedicated community</li>
+              <li> --> Today we will focus on the basics so you can read/understand
+                general concepts in d3, so you can interact with the d3 community.</li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -115,9 +129,13 @@
           <aside class="notes">
             <ul>
               <li>SVG = Scaleable Vector Graphic</li>
-              <li>XML based -> Looks like HTML</li>
-              <li>You can export into svg format in Illustrator and Drop the contents of the file right into an HTML doc</li>
-              <li>Can be used with CSS and animated with JS</li>
+              <li>Similar to flash, accept instead of being compiled and run in a viewer, it uses open web standards</li>
+              <li>... which means it can be used with CSS and animated with JS</li>
+              <li>XML based -> Looks like HTML, but is made for graphics</li>
+              <li>... so it is much faster and , but nonetheless you can pretty much just cut and past svg code into html docs</li>
+              <li>But it is not a standin for the internet ->
+                Pretty much anything can be drawn in SVG format</li>
+              <li>... in fact, you can export into svg format in Illustrator and Drop the contents of the file right into an HTML doc</li>
             </ul>
           </aside>
         </section>
@@ -126,7 +144,7 @@
           <h1>Basic SVG Shapes </h1>
           <aside class="notes">
             <ul>
-              <li>Go through some examples of SVG shapes so you can get a taste of what the general syntax for svg </li>
+              <li> In this next section we are going to go through some examples of SVG shapes so you can get a taste of what the general syntax for svg </li>
             </ul>
           </aside>
         </section>
@@ -163,10 +181,10 @@
           <aside class="notes">
             <ul>
               <li> To define a circle you first need to give the SVG where the circle lives a width and height</li>
-              <li> Then you need to give the circle a radius (r) and a position within the svg(cx &amp; cy or transform)</li>
-              <li> <strong>Point out which is which</strong></li>
+              <li> Then you need to give the circle a radius (r) and a position within the svg (cx &amp; cy or transform)</li>
+              <li> <strong class="instructions">Point out which is which</strong></li>
               <li> The position of a circle is relative to its center</li>
-              <li> <strong>Open up developer tools and modify the attributes</strong></li>
+              <li> <strong class="instructions">Open up developer tools and modify the attributes</strong></li>
             </ul>
           </aside>
         </section>
@@ -261,6 +279,84 @@
         </section>
 
         <section>
+          <h3 class="title"> modifying-svgs<span class="title-divider"> / </span><span class="subtitle">general-ideas</span></h3>
+
+          <svg width="960" height="300">
+            <g data-fragment-index="2" class="fragment fade-out">
+              <circle cx="180" cy="250" r="40" fill="#CDDC39"></circle>
+              <circle cx="480" cy="250" r="40" fill="#00BCD4"></circle>
+              <circle cx="780" cy="250" r="40" fill="#FF5722"></circle>
+            </g>
+            <g data-fragment-index="2" class="fragment">
+              <g data-fragment-index="3" class="fragment fade-out">
+                <circle cx="180" cy="250" r="40" fill="#CDDC39" stroke="black" stroke-width="1"></circle>
+                <circle cx="480" cy="250" r="40" fill="#00BCD4" stroke="black" stroke-width="1"></circle>
+                <circle cx="780" cy="250" r="40" fill="#FF5722" stroke="black" stroke-width="1"></circle>
+              </g>
+            </g>
+            <g data-fragment-index="3" class="fragment">
+              <circle cx="180" cy="100" r="100" fill="#CDDC39" stroke="black" stroke-width="1"></circle>
+              <circle cx="480" cy="100" r="100" fill="#00BCD4" stroke="black" stroke-width="1"></circle>
+              <circle cx="780" cy="100" r="100" fill="#FF5722" stroke="black" stroke-width="1"></circle>
+            </g>
+          </svg>
+
+          <span data-fragment-index="1" class="fragment">
+            <pre class="javascript fragment fade-out" data-fragment-index="2"><code>
+  // SELECT ITEMS TO MANIPULATE
+  var circles = d3.selectAll('circle');
+          </code></pre>
+        </span>
+
+        <span data-fragment-index="2" class="fragment">
+          <pre data-fragment-index="3" class="fragment fade-out javascript"><code>
+  var circles = d3.selectAll('circle');
+
+  // DEFINE PROPERTIES AND ATTRIBUTES TO MODIFY
+  circles.attr('stroke', 'black');
+  circles.attr('stroke-width', 1);
+          </code></pre>
+        </span>
+
+          <pre data-fragment-index="3" class="fragment javascript"><code>
+  var circles = d3.selectAll('circle');
+
+  // CHAINING METHODS
+  circles
+    .attr('stroke', 'black')
+    .attr('stroke-width', 1)
+    .attr('radius', 100)
+    .attr('cy', 100);
+          </code></pre>
+
+          <aside class="notes">
+            <p class="instructions">I want to quickly go over some general concepts in the "d3-approach" to modifying svgs and JS in general,
+              as it is pretty different than the way most JS libs do things.</p>
+            <ol>
+              <li>Selecting items to manipulate. (Defining our selection)
+                <ul>
+                  <li> d3 gives us 2 methods to do this (select and selectAll) -- we will go over in more detail later</li>
+                  <li> because we have 3 circles here I am use selectAll </li>
+                </ul>
+              </li>
+              <li> Define properties/ attrs to modify
+                <ul>
+                  <li> use the attr method to change an attribute</li>
+                  <li> 1st param = the attr we want to modify </li>
+                  <li> 2nd param = the value we want to set this property to (can be a static value or a function that returns a value) </li>
+                </ul>
+              </li>
+            </ol>
+            <li> Chaining methods
+              <ul>
+                <li> Typically we will see a d3 with a long list of methods stacked up</li>
+                <li> We can write d3 in this way because each method is returning the selection</li>
+              </ul>
+            </li>
+          </aside>
+        </section>
+
+        <section>
           <h3 class="title"> modifying-svgs<span class="title-divider"> / </span><span class="subtitle">d3.select, d3.attr </span></h3>
 
           <svg width="100%" height="200">
@@ -283,7 +379,9 @@
 
           <aside class="notes">
             <ul>
-              <li><strong>Show in devtools what comes back from a selection</strong></li>
+              <li>Need to tell d3 what we are interested in modifying - here we are using .select, b/c we only have one circle</li>
+              <li>Similar to document.querySelector or the $ in jQuery -> returns a the objects that match that css selector</li>
+              <li><strong class="instructions">Show in devtools what comes back from a selection</strong></li>
             </ul>
           </aside>
         </section>
@@ -571,7 +669,7 @@
   // container then select the child elements we are
   // interested in and to use selectAll
   // even though there is currently only one circle
-  var circles= d3.select('svg')
+  var circles = d3.select('svg')
     .selectAll('circle')
     .data(my_data);
 
@@ -604,6 +702,42 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/bqRyzL
           </a>
+
+          <aside class="notes">
+            <p>What happens if there are more items in our array then on the page?</p>
+            <p>By making some adjustments to our code we can actually add el to the page to match the array</p>
+            <ol>
+              <li> <code>.select('svg').selectAll('circle')</code>
+                <ul>
+                  <li>Like .attr, the select/selectAll are chainable</li>
+                  <li>When we use select followed by selectAll we are effectively defining a parent and its children</li>
+                  <li>This is necessary if we are going to add new items because we have to tell d3 where to put them</li>
+                </ul>
+              </li>
+              <li><code>.enter().append</code>
+                <ul>
+                  <li>After binding datat to <code>circles</code>, we are defububg another var <code>newCircles = circles.enter().append('circle')</code></li>
+                  <li>What this is saying is for all the items in the array that don't don't have a matching element in the DOM, add a new circle to the svg</li>
+                  <li>Specifically, <code>.enter()</code> selects the elements that are going to be added &amp; ...</li>
+                  <li><code>.append</code> adds a new element. -- the value passed into the append method defines what kind of element to add</li>
+                  <li><strong>Open dev tools to show new elements</strong></li>
+                  <li>We could do other stuff in this code block too, but it would only happen to our new circles</li>
+                </ul>
+              </li>
+              <li><code>circles = circles.merge(newCircles)</code>
+                <ul>
+                  <li>Here we are updating our definition of circles to include the newCircles we just added, then setting attr for them</li>
+                  <li><code>.attr('cx', function(d, i) { return (i+1) * 200; })</code>
+                    <ul>
+                      <li>js arrays are "zero indexed", meaining <code> var firstItem = someArray[0]; var secondItem = someArray[1];</code></li>
+                      <li>if we remember that the "i" param passed into our attr function = index, then we see that this evaluates to [200, 400, 600]</li>
+                      <li>this is a very common way to structure code in d3 when arranging items</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </aside>
         </section>
 
         <section  class="huge-text">
@@ -660,6 +794,74 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/YZQbMp
           </a>
+
+          <aside class="notes">
+            <p>What happens if there are more el in the DOM than in the array?</p>
+            <p>Again, by making some adjustments to our code we can actually add el to the page to match the array</p>
+            <ol>
+              <li> <code>circles.exit().remove();</code>
+                <ul>
+                  <li>Similar to <code>.enter()</code>, <code>.exit()</code> selects all the items on the page that don't have matching items in the array and therefore are presumeably leaving</li>
+                  <li><code>.remove()</code> deletes the elments in this subset</li>
+                </ul>
+              </li>
+            </ol>
+            <p>You might notice that I left the code we added in the last step.
+              This is because, together these to codeblocks exemplify the 'insert, update, delete' code structure of d3.
+              This is a pretty advanced concept (horray you did it!), but it allows us to basically throw anything into the array and see it represented in our svg.
+            </p>
+
+          </aside>
+        </section>
+        </section>
+
+        <section>
+          <h3 class="title">data-binding<span class="title-divider"> / </span><span class="subtitle"> selecting-things-that-don't-exist </span></h3>
+
+          <svg width="100%" height="200"></svg>
+
+          <pre class="javascript" style="width: 100%"><code>
+  var my_data = [
+    { stat_1: 40, stat_2: 10 },
+    { stat_1: 30, stat_2: 250 },
+    { stat_1: 130, stat_2: 40 }
+  ];
+
+  // This looks like craziness, because there are no circles in the svg
+  // but we are essentially creating a placeholder for circles
+  // and handling the possibility that there might be circles
+  var circles = d3.select('svg')
+    .selectAll('circle')
+    .data(my_data);
+
+  var newCircles = circles.enter()
+    .append('circle');
+
+  circles.exit()
+    .remove();
+
+  circles = circles.merge(newCircles)
+    .attr('cy', 100)
+    .attr('cx', function(d, i) {
+      return (i+1) * 200;
+    })
+    .transition()
+    .attr('r', function(d, i) {
+      return d.stat_1;
+    })
+    .attr('fill', function(d, i) {
+      if (d.stat_2 >= 100) {
+        return 'red';
+      } else {
+        return 'blue';
+      }
+    });
+          </code></pre>
+
+          <a href="http://codepen.io/eslivinski/pen/MmWYXy" class="code-link" target="_blank">
+            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+            codepen.io/eslivinski/pen/MmWYXy
+          </a>
         </section>
 
         <section class="huge-text">
@@ -667,12 +869,86 @@
         </section>
 
         <section>
-          <img src="./media/images/map.svg" class="no-border"/>
+          <section>
+            <img src="./media/images/map.svg" class="no-border"/>
 
-          <a href="http://codepen.io/eslivinski/pen/WpOqeK" class="code-link" target="_blank">
-            <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
-            codepen.io/eslivinski/pen/WpOqeK
-          </a>
+            <a href="http://codepen.io/eslivinski/pen/WpOqeK" class="code-link" target="_blank">
+              <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
+              codepen.io/eslivinski/pen/WpOqeK
+            </a>
+            <aside class="notes">
+              <ol>
+                <li> Defining the SVG
+                  <ul>
+                    <li>Unlike the other examples we have gone through, we are starting from complete scratch and need to define the SVG and all the things we want to put in it.</li>
+                    <li>Similar to what we did when we added the circles in a previous example we create the SVG by selecting the parent container where we want the SVG inserted (<code>d3.select("body")</code>)... </li>
+                    <li>...then add the svg using <code>.append("svg")</code></li>
+                    <li>...finally, we set the width and the height attrs to create space for our map.
+                  </ul>
+                </li>
+                <li> Projection
+                  <li> In cartography a projection is the way you go from a round globe to a flat map (the way you peel the orange)... </li>
+                  <li> In d3 a projection is the exact same thing, but that strategy for going from round to flat is expressed as a js function </li>
+                  <li> Function takes an array of coords ([lng, lat]) and returns an array of coords within our svg</li>
+                  <li> Lots of built in projections, plus the ability to add custom definitions. </li>
+                </li>
+                 <li> Path
+                   <li> Seeing as our projection function only takes one array of coords at a time, we will want to use a path generator to more efficiently project geojson polygons and lines.</li>
+                   <li> Path generators take in geojsons and return projected coordinates expressed in an svg path (ie. d)</li>
+                </li>
+                <li> Data URL
+                  <li>To make things easy for codepen I am hosting the geojson of the US on github</li>
+                  <li>If you open the url in your browser you will see it is just a geojson</li>
+                </li>
+                <li> D3.JSON
+                  <li> Since we are loading this json file from somewhere outside of this JS file we need to request the file using d3.json</li>
+                  <li> D3.json takes 2 params
+                    <ol>
+                      <li>Url of our data</li>
+                      <li>Callback function (What to do when d3 is done going out and grabbing our dataset)
+                        <ul>
+                          <li> 2 param (err and data)</li>
+                          <li> err - if all goes according to plan, we don't have to worry about this, but if there is an issue loadingour dataset
+                            d3 will send that issue back in this 1st param.</li>
+                          <li> data - the data we were looking for</li>
+                          <li> We have to work with our data within the scope of this callback function, because there is no telling how long it will take
+                            our request to actually retrieve the data (like all AJAX calls d3.json is handled asynchronously)</li>
+                        </ul>
+                      </li>
+                    </ol>
+                  </li>
+                </li>
+                <li>Defining states
+                  <ul>
+                    <li><code>var states = svg.selectAll("path").data(geojson.features).enter().append("path")</code></li>
+                    <li>Using our "selecting things that don't exist" strategy to bind our geojson data to our states</li>
+                  </ul>
+                </li>
+                <li> Drawing states
+                  <ul>
+                    <li><code>.attr("d", path)</code></li>
+                    <li> We want to use our geo path function to define the d property of our states. Since attr accepts a function and
+                      will pass the states' data into the first param of that function we can write it like this.
+                    </li>
+                    <li><code>.attr("d", function(d) { return path(d); })</code> works too.</li>
+                </li>
+                <li> Styling states
+                  <ul>
+                    <li> Adding the states class, which will define the stroke color. </li>
+                    <li> Setting the fill property based on the the states' <code>properties.stat_1</code></li>
+                  </ul>
+                </li>
+              </ol>
+            </aside>
+          </section>
+
+          <section>
+            <h3 class="title">Drawing complex SVG shapes <span class="title-divider"> / </span><span class="subtitle"> SVG Paths </span></h3>
+            <img src="./media/images/sonic.svg" class="no-border"/>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths" class="code-link" target="_blank">
+              SVG Paths
+            </a>
+          </section>
         </section>
 
         <section>
