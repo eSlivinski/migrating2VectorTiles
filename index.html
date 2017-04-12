@@ -72,7 +72,7 @@
             <ul>
               <li>D3 = Data Driven Documents</li>
               <li><strong>Document</strong> = DOM (Document Object Model)</li>
-              <li>Basic idea = modify elements based on a dataset</li>
+              <li>Open source lib that uses html, js, css, svg to transform web elements based on data</li>
               <li>Not a wizard, but a tool that gives you the means to create vizualizations</li>
             </ul>
           </aside>
@@ -132,7 +132,7 @@
               <li>Similar to flash, accept instead of being compiled and run in a viewer, it uses open web standards</li>
               <li>... which means it can be used with CSS and animated with JS</li>
               <li>XML based -> Looks like HTML, but is made for graphics</li>
-              <li>... so it is much faster and , but nonetheless you can pretty much just cut and past svg code into html docs</li>
+              <li>... so it is much faster and more flexible, but nonetheless you can pretty much just cut and past svg code into html docs</li>
               <li>But it is not a standin for the internet ->
                 Pretty much anything can be drawn in SVG format</li>
               <li>... in fact, you can export into svg format in Illustrator and Drop the contents of the file right into an HTML doc</li>
@@ -152,6 +152,12 @@
         <section>
           <iframe src="//giphy.com/embed/Mp74NJoYgdAZi" width="480" height="349" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br>
           <a href="./examples.html"><i class="fa fa-fw fa-codepen" aria-hidden="true"></i> eslivinski.github.io/d3.js/examples.html </a><br>
+          <aside class="notes">
+            <ul>
+              <li> Rest of the presentation will be working through examples</li>
+              <li> If you would like to follow along I have created CodePens for each slide</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -346,13 +352,14 @@
                   <li> 2nd param = the value we want to set this property to (can be a static value or a function that returns a value) </li>
                 </ul>
               </li>
+              <li> Chaining methods
+                <ul>
+                  <li> Typically we will see a d3 with a long list of methods stacked up</li>
+                  <li> We can write d3 in this way because each method is returning the selection</li>
+                </ul>
+              </li>
             </ol>
-            <li> Chaining methods
-              <ul>
-                <li> Typically we will see a d3 with a long list of methods stacked up</li>
-                <li> We can write d3 in this way because each method is returning the selection</li>
-              </ul>
-            </li>
+
           </aside>
         </section>
 
@@ -412,8 +419,12 @@
             </a>
 
             <aside class="notes">
+              <p>What happens if we have two elements that match the css selector? <br>
+                ==> Only modify the first one<br>
+                ==> Need to use selectAll instead
+              </p>
               <ul>
-                <li><strong>Show in devtools what comes back from a selection</strong></li>
+                <li class="instructions"><strong>Show in devtools what comes back from a selection</strong></li>
               </ul>
             </aside>
           </section>
@@ -532,6 +543,14 @@
             codepen.io/eslivinski/pen/jBwoaz
           </a>
 
+          <aside class="notes">
+            <ul>
+              <li>To make our changes occur as smooth animations, rather than abrupt updates, we can <code>.transiton</code>  </li>
+              <li>Adding the .transition method makes any subsequent .attr calls in the code block animate </li>
+              <li>If there is more than one .attr call in the code block, the changes will happen simultaneously</li>
+              <li>Separating groups of .attr calls with .transition, will create stepped animations</li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -564,6 +583,15 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/zZzQRX
           </a>
+
+          <aside class="notes">
+            <ul>
+              <li>Data binding is where d3 gets its name</li>
+              <li>Process of attaching data to elements and using that data to determin their appearence/behavior</li>
+              <li>To bind data we use the .data method, which passes an array of data to our selection</li>
+              <li class="instructions">Right click circle > inspect element > open properties tab (in elements) > circle > __data__ === 30</li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -571,6 +599,11 @@
             <iframe src="//giphy.com/embed/xT77Y36ijyuwn58bja" width="288" height="259" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
           </div>
           <h1>So what?</h1>
+          <aside class="notes">
+            <ul>
+              <li>"Horray you ran some code that allows you to dig through the elements panel and see the number 30"</li>
+            </ul>
+          </aside>
         </section>
 
 
@@ -609,7 +642,23 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/NpgVYX
           </a>
-
+          <aside class="notes">
+            <ol>
+              <li>Select the circle -> what we want to modify</li>
+              <li>Use .data to pass in my_data => attach my_data to the selection</li>
+              <li>Transition => animate my changes</li>
+              <li>Update radius attr
+                <ul>
+                  <li>Instead of passing in an static value, we are passing in a function that will recieve 2 variables and return our attr value</li>
+                  <li>First Param(d) => the data attached to the element</li>
+                  <li>Second Param(i) => the elements index in the selection</li>
+                  <li>Params don't have to be called d and i, since we are defining the function, we can call them what ever we want, all that matters is the order</li>
+                  <li>Function must return the value for attr</li>
+                  <li><strong class="instructions">open the code in codepen and modify the data</strong></li>
+                </ul>
+              </li>
+            </ol>
+          </aside>
         </section>
 
         <section>
@@ -643,7 +692,14 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/NpgVMX
           </a>
-
+          <aside class="notes">
+            <ul>
+              <li>This example uses a data object rather than an integer</li>
+              <li>Radius value is set based on the value of stat_1</li>
+              <li>The color of the circle is set based on the value of stat_2</li>
+              <li><strong class="instructions">open the code in codepen and modify the data</strong></li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -862,6 +918,18 @@
             <i class="fa fa-fw fa-codepen" aria-hidden="true"></i>
             codepen.io/eslivinski/pen/MmWYXy
           </a>
+
+          <aside class="notes">
+            <ul>
+              <li>To really prove the utility of the insert/update/delete structure lets try one more example</li>
+              <li>Why select things that don't exist?
+                <ol>
+                  <li>Takes care of the possibility that they might exist -- we might not know what the data will look like</li>
+                  <li>Create elements with data already bound to them</li>
+                </ol>
+              </li>
+            </ul>
+          </aside>
         </section>
 
         <section class="huge-text">
@@ -887,36 +955,44 @@
                   </ul>
                 </li>
                 <li> Projection
-                  <li> In cartography a projection is the way you go from a round globe to a flat map (the way you peel the orange)... </li>
-                  <li> In d3 a projection is the exact same thing, but that strategy for going from round to flat is expressed as a js function </li>
-                  <li> Function takes an array of coords ([lng, lat]) and returns an array of coords within our svg</li>
-                  <li> Lots of built in projections, plus the ability to add custom definitions. </li>
+                  <ul>
+                    <li> In cartography a projection is the way you go from a round globe to a flat map (the way you peel the orange)... </li>
+                    <li> In d3 a projection is the exact same thing, but that strategy for going from round to flat is expressed as a js function </li>
+                    <li> Function takes an array of coords ([lng, lat]) and returns an array of coords within our svg</li>
+                    <li> Lots of built in projections, plus the ability to add custom definitions. </li>
+                  </ul>
                 </li>
                  <li> Path
-                   <li> Seeing as our projection function only takes one array of coords at a time, we will want to use a path generator to more efficiently project geojson polygons and lines.</li>
-                   <li> Path generators take in geojsons and return projected coordinates expressed in an svg path (ie. d)</li>
+                 <ul>
+                    <li> Seeing as our projection function only takes one array of coords at a time, we will want to use a path generator to more efficiently project geojson polygons and lines.</li>
+                    <li> Path generators take in geojsons and return projected coordinates expressed in an svg path (ie. d)</li>
+                  </ul>
                 </li>
                 <li> Data URL
-                  <li>To make things easy for codepen I am hosting the geojson of the US on github</li>
-                  <li>If you open the url in your browser you will see it is just a geojson</li>
+                  <ul>
+                    <li>To make things easy for codepen I am hosting the geojson of the US on github</li>
+                    <li>If you open the url in your browser you will see it is just a geojson</li>
+                  </ul>
                 </li>
                 <li> D3.JSON
-                  <li> Since we are loading this json file from somewhere outside of this JS file we need to request the file using d3.json</li>
-                  <li> D3.json takes 2 params
-                    <ol>
-                      <li>Url of our data</li>
-                      <li>Callback function (What to do when d3 is done going out and grabbing our dataset)
-                        <ul>
-                          <li> 2 param (err and data)</li>
-                          <li> err - if all goes according to plan, we don't have to worry about this, but if there is an issue loadingour dataset
-                            d3 will send that issue back in this 1st param.</li>
-                          <li> data - the data we were looking for</li>
-                          <li> We have to work with our data within the scope of this callback function, because there is no telling how long it will take
-                            our request to actually retrieve the data (like all AJAX calls d3.json is handled asynchronously)</li>
-                        </ul>
-                      </li>
-                    </ol>
-                  </li>
+                  <ul>
+                    <li> Since we are loading this json file from somewhere outside of this JS file we need to request the file using d3.json</li>
+                    <li> D3.json takes 2 params
+                      <ol>
+                        <li>Url of our data</li>
+                        <li>Callback function (What to do when d3 is done going out and grabbing our dataset)
+                          <ul>
+                            <li> 2 param (err and data)</li>
+                            <li> err - if all goes according to plan, we don't have to worry about this, but if there is an issue loadingour dataset
+                              d3 will send that issue back in this 1st param.</li>
+                            <li> data - the data we were looking for</li>
+                            <li> We have to work with our data within the scope of this callback function, because there is no telling how long it will take
+                              our request to actually retrieve the data (like all AJAX calls d3.json is handled asynchronously)</li>
+                          </ul>
+                        </li>
+                      </ol>
+                    </li>
+                  </ul>
                 </li>
                 <li>Defining states
                   <ul>
