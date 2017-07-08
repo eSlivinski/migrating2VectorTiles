@@ -1,6 +1,8 @@
-@import "bower_components/font-awesome/scss/font-awesome.scss";
-@import "bower_components/highlight-js/src/styles/rainbow";
-@import "bower_components/bootstrap/dist/css/bootstrap";
+$fa-font-path: "../node_modules/font-awesome/fonts";
+
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../node_modules/highlight.js/styles/rainbow";
+@import "../node_modules/bootstrap/dist/css/bootstrap";
 @import "./reveal/reveal.scss";
 @import "./theme/simple";
 
@@ -93,25 +95,5 @@
         color: #fff;
       }
     }
-    // .practice {
-    //   align-items: center;
-    //   flex-direction: row;
-    //   display: flex;
-    //   width: 50%;
-    //   margin-left: 25%;
-    //   font-size: 24px;
-    //
-    //   foo#bar {
-    //     height: 50px;
-    //     width: 200px;
-    //     background-color: #eee;
-    //     display: inline-block;;
-    //     border-radius: 3px;
-    //     border: 2px dashed #bbb;
-    //     font-size: medium;
-    //     padding: 10px;
-    //     font-family: courier;
-    //   }
-    // }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "d3.js",
+  "name": "migrating2VectorTiles",
   "version": "0.0.0",
   "main": "js/reveal.js",
   "scripts": {
@@ -8,14 +8,17 @@
   "author": "Lizzi Slivinski",
   "repository": {
     "type": "git",
-    "url": "git://github.com/eslivinski/d3.js.git"
+    "url": "git://github.com/eslivinski/migrating2VectorTiles.git"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "~4.14.0",
+    "font-awesome": "^4.7.0",
     "grunt-cli": "~1.2.0",
+    "highlight.js": "^9.12.0",
     "mustache": "~2.2.1",
     "socket.io": "^1.4.8"
   },
