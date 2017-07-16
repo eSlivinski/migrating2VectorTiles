@@ -1,1 +1,0 @@
-# Migrating To Vector Tiles

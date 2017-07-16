@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Presentation Name</title>
+    <title>migrating2VectorTiles</title>
     <link rel="icon" type="image/png" href="media/favicon/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="media/favicon/favicon-16x16.png" sizes="16x16" />
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.min.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -24,14 +24,297 @@
       <div class="slides">
 
 <section>
-  <h1 class="huge">Presentation Name</h1>
+  <h1 class="huge">Migrating to Vector Tiles</h1>
+  <h3 class="text-right highlight">Lizzi Slivinski</h3>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h2>Road Map</h2>
+  <ol>
+    <li>What are vector tiles and why do we want them?</li>
+    <li>Vector Tile Implementations and De</li>
+    <li>Take aways</li>
+  </ol>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h1 class="huge">What are vector tiles?
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Vector Tiles</h3>
+  <p>
+    [Vector tiles] are packets of geographic data, packaged into pre-defined
+    roughly-square shaped "tiles" for transfer over the web<br>
+    <em>~Wikpedia</em>
+  </p>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Image Tiles</h3>
+  <img src="./media/images/image_tiles.png"></img>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Image Tiles</h3>
+  <ul>
+    <li>Immutable</li>
+    <li>Require lots of storage</li>
+    <li>Can’t interact with the data</li>
+    <li>Have to be cached in advance/cumbersome to update</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Geojson + SVG/Canvas/HTML</h3>
+  <div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+<pre><code>{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}</code></pre>
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li>Unlike image tiles we work with the entire dataset directly</li>
+      <li>When the user zooms or pans, the vector data is repositioned on top</li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Geojson + SVG/Canvas/HTML</h3>
+  <ul>
+    <li>Can be restyled dynamically</li>
+    <li>Can interact with the data</li>
+    <li>Can overwhelm the browser</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Perfomance / Interactivity</h3>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Vector Tiles</h3>
+  <p>
+    [Vector tiles] are packets of geographic data, packaged into pre-defined
+    roughly-square shaped "tiles" for transfer over the web<br>
+    <em>~Wikpedia</em>
+  </p>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Vector Tiles</h3>
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="./media/images/vector_tiles.gif"></img>
+    </div>
+    <div class="col-sm-6">
+      <br>
+      Replace this image with one that compares the data at zoom levels
+    </div>
+  </div>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Vector Tiles</h3>
+  <ul>
+    <li>Increased Preformance</li>
+    <li>Dynamic Styling</li>
+    <li>Access to Data</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li>Just to Recap... </li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h1 class="huge">Vector Tile Implementations</h1>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Format?</h3>
+  <ul>
+    <li>PBF</li>
+    <li>GeoJson</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Render?</h3>
+  <ul>
+    <li>MapboxGL</li>
+    <li>LeafletVectorGrid</li>
+    <li>OpenLayers</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h3>Server?</h3>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <img src="./media/images/vetro_logo.png"></img>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <img src="./media/images/vetro_logo.png"></img>
+  <ul>
+    <li>Dynamic Restyling</li>
+    <li>Interactivity</li>
+    <li>Editing</li>
+  </ul>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <img src="./media/images/vetro_logo.png"></img>
+  <img src="./media/images/vetro_editing.gif"></img>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h1 class="huge">Questions?</h1>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h2>Lizzi Slivinski</h2>
+  <h3>NBT Solutions</h3>
+  <ul class="fa-ul">
+    <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>eslivinski@gmail.com</li>
+    <li><i class="fa fa-li fa-github-alt" aria-hidden="true"></i>@eSlivinski</li>
+    <li><i class="fa fa-li fa-twitter" aria-hidden="true"></i>@eSlivinski</li>
+  </p>
+  <aside class="notes">
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+  </aside>
 </section>
 
     </div>
   </div>
 
     <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
+    <script src="js/reveal.min.js"></script>
     <script>
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({

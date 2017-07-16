@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+
+$font-sams-serif: 'Roboto';
+$highlight-color: #3F51B5;
+
+
+@mixin headingtext {
+  font-variant: small-caps;
+  font-weight: bold;
+  line-height: 0.8;
+  margin-bottom: 0px;
+}
+
+@mixin highlight {
+  color: $highlight-color;
+  font-weight: bold;
+}
+
+
+.reveal section {
+  font-family: $font-sams-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul>li {
+    font-family: $font-sams-serif;
+  }
+
+  .highlight {
+    @include highlight;
+  }
+
+  .huge {
+    line-height: 0.9;
+    font-size: 5em;
+    text-align: left;
+    margin: 0;
+  }
+
+  img {
+    border: none;
+    box-shadow: none;
+  }
+
+  .fa-ul {
+    padding-left: 0;
+    margin-left: 2.1428571429em;
+    list-style-type: none;
+  }
+}
