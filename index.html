@@ -23,291 +23,305 @@
     <div class="reveal">
       <div class="slides">
 
+<!-- 00.01-title -->
 <section>
   <h1 class="huge">Migrating to Vector Tiles</h1>
   <h3 class="text-right highlight">Lizzi Slivinski</h3>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="00.01-title"> </aside>
 </section>
 
+<!-- 00.02-road-map -->
 <section>
   <h2>Road Map</h2>
   <ol>
-    <li>What are vector tiles and why do we want them?</li>
-    <li>Vector Tile Implementations and De</li>
-    <li>Take aways</li>
+    <li class="fragment">The Case for Vector Tiles</li>
+    <li class="fragment">Developing a Migration Stratey</li>
   </ol>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="00.02-road-map"></aside>
 </section>
 
+<!-- 00.03-what-are-vt-->
 <section>
-  <h1 class="huge">What are vector tiles?
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <h1 class="huge">What are vector tiles?</h1>
+  <aside class="notes" data-markdown="00.03-what-are-vt"></aside>
 </section>
 
+<!-- 00.04-vt-deff -->
+<!-- TODO: Get a Better Deffiniton -->
 <section>
   <h3>Vector Tiles</h3>
   <p>
-    [Vector tiles] are packets of geographic data, packaged into pre-defined
-    roughly-square shaped "tiles" for transfer over the web<br>
+    [Vector tiles] are
+    <span class="fragment highlight-blue" data-fragment-index="1"> packets of geographic data</span>,
+    packaged into pre-defined roughly-square shaped
+    <span class="fragment highlight-blue" data-fragment-index="2">"tiles"</span> for transfer over the web
     <em>~Wikpedia</em>
   </p>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="00.04-vt-deff"></aside>
 </section>
 
+<!-- 01.01-vt-benefits -->
+<!-- TODO: ADD SHINY FEATURES HERE? -->
+<section>
+  <h3>Why Bother Migrating?</h3>
+  <ol>
+    <li class="fragment"> Short-comings of traditional data formats </li>
+  </ol>
+  <aside class="notes" data-markdown="01.01-vt-benefits"> </aside>
+</section>
+
+<!-- 01.02-trade-off-image-tiles -->
 <section>
   <h3>Image Tiles</h3>
-  <img src="./media/images/image_tiles.png"></img>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
+  <div class="fragment fade-out" data-fragment-index="1">
+    <img src="./media/images/image_tiles.png"></img>
+  </div>
 
-<section>
-  <h3>Image Tiles</h3>
-  <ul>
-    <li>Immutable</li>
-    <li>Require lots of storage</li>
-    <li>Can’t interact with the data</li>
-    <li>Have to be cached in advance/cumbersome to update</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Geojson + SVG/Canvas/HTML</h3>
-  <div class="row">
-    <div class="col-sm-6"></div>
-    <div class="col-sm-6">
-<pre><code>{
-  "type": "Feature",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [125.6, 10.1]
-  },
-  "properties": {
-    "name": "Dinagat Islands"
-  }
-}</code></pre>
+  <div class="fragment" data-fragment-index="1">
+    <img src="./media/images/tradeoff-raster.png"/>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
+          <li><i class="fa-li fa fa-thumbs-down"></i>Immutable</li>
+          <li><i class="fa-li fa fa-thumbs-down"></i>Can’t interact with the data</li>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+          <li><i class="fa-li fa fa-thumbs-up"></i>Only load visible data</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <aside class="notes">
-    <ul>
-      <li>Unlike image tiles we work with the entire dataset directly</li>
-      <li>When the user zooms or pans, the vector data is repositioned on top</li>
-    </ul>
-  </aside>
+
+  <aside class="notes" data-markdown="01.02-trade-off-image-tiles"> </aside>
 </section>
 
+<!-- 01.03-trade-off-vectors -->
 <section>
   <h3>Geojson + SVG/Canvas/HTML</h3>
-  <ul>
-    <li>Can be restyled dynamically</li>
-    <li>Can interact with the data</li>
-    <li>Can overwhelm the browser</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
+  <!-- <div class="fragment fade-out" data-fragment-index="1">
+    <img src="./media/images/image_tiles.png"></img>
+  </div> -->
 
-<section>
-  <h3>Perfomance / Interactivity</h3>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Vector Tiles</h3>
-  <p>
-    [Vector tiles] are packets of geographic data, packaged into pre-defined
-    roughly-square shaped "tiles" for transfer over the web<br>
-    <em>~Wikpedia</em>
-  </p>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Vector Tiles</h3>
-  <div class="row">
-    <div class="col-sm-6">
-      <img src="./media/images/vector_tiles.gif"></img>
+  <!-- <div class="fragment" data-fragment-index="1"> -->
+    <img src="./media/images/tradeoff-vector.png"/>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+          <li><i class="fa-li fa fa-thumbs-up"></i>Dynamically styled</li>
+          <li><i class="fa-li fa fa-thumbs-up"></i>Access to data</li>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
+          <li><i class="fa-li fa fa-thumbs-down"></i>Can overwhelm the browser</li>
+        </ul>
+      </div>
     </div>
-    <div class="col-sm-6">
+  <!-- </div> -->
+  <aside class="notes" data-markdown="01.03-trade-off-vectors"></aside>
+</section>
+
+<!-- 01.04-trade-off-implications-->
+<section data-background-image="./media/images/chrome-error.jpg">
+  <aside class="notes" data-markdown="01.04-trade-off-implications"></aside>
+</section>
+
+<!-- 01.05-trade-off-vt -->
+<section>
+  <h3>Vector Tiles</h3>
+
+  <div class="fragment fade-out" data-fragment-index="1">
+    <img src="./media/images/vector_tiles.gif" style="max-width: 60%"></img>
+  </div>
+
+  <div class="fragment fade-in" data-fragment-index="1">
+    <img src="./media/images/tradeoff-optimal.png"/>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+          <li><i class="fa-li fa fa-thumbs-up"></i>Dynamic Styling</li>
+          <li><i class="fa-li fa fa-thumbs-up"></i>Access to Data</li>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+          <li><i class="fa-li fa fa-thumbs-up"></i>Increased Preformance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes" data-markdown="01.05-trade-off-vt"></aside>
+</section>
+
+<!-- 01.06-vt-benefits-conclusion -->
+<section>
+  <img src="https://media.giphy.com/media/YtLdRorcY7gcg/giphy.gif"></img>
+  <aside class="notes" data-markdown="01.06-vt-benefits-conclusion"></aside>
+</section>
+
+<!-- 02.01-migration-intro -->
+<section>
+  <h1 class="huge"> Making the <span class="highlight">Switch</span></h1>
+  <aside class="notes" data-markdown="02.01-migration-intro"> </aside>
+</section>
+
+<!-- 02.02-vetro-overview -->
+<section>
+  <img src="./media/images/vetro_logo.png"></img>
+  <div class="row">
+    <div class="col-sm-12">
+      <img src="./media/images/screenshot.png" style="max-width: 50%"></img><br>
+      <small><a href="http://www.vetrofibermap.com">vetrofibermap.com</a></small>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="02.02-vetro-overview"> </aside>
+</section>
+
+<!-- 02.03-migration-goals -->
+<section>
+  <h3>Goals</h3>
+  <br>
+  <ol>
+    <li class="fragment">Enhance Performance</li>
+    <li class="fragment">Minimize Reengineering <span class="fragment">(where possible)</span></li>
+    <li class="fragment">Maintain Interactivity/UX
+      <ul class="fragment">
+        <li>Dynamic Restyling</li>
+        <li>GIS Functions<br>(Point in polygon, nearest features)</li>
+        <li>Editing</li>
+      </ul>
+    </li>
+  </ol>
+
+  <aside class="notes" data-markdown="02.03-migration-goals"></aside>
+</section>
+
+<!-- 02.04-migration-strategy-->
+<section>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="text-left"> <span class="highlight">a)</span> Update our map code to utilize another library </h3>
       <br>
-      Replace this image with one that compares the data at zoom levels
+      <h3 class="text-left"> <span class="highlight">b)</span> extend a plugin to meet our needs</h3>
     </div>
   </div>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="02.04-migration-strategy"></aside>
 </section>
 
+<!-- 02.05-leaflet-vt -->
 <section>
-  <h3>Vector Tiles</h3>
-  <ul>
-    <li>Increased Preformance</li>
-    <li>Dynamic Styling</li>
-    <li>Access to Data</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li>Just to Recap... </li>
-    </ul>
-  </aside>
+  <h3>Going <span class="highlight">Rogue</span>&mdash;DIY Tiles</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <img src="./media/images/vetro_proof_demo.gif"></img>
+    </div>
+    <div class="col-xs-6">
+      <p>
+        <br>
+        <a href="https://github.com/NBTSolutions/Leaflet.VectorTiles">Leaflet.VectorTiles</a>
+        <br>
+      </p>
+      <ul class="fa-ul fragment fade-out" data-fragment-index="1">
+        <li> <i class="fa-li fa fa-check"></i>Spatial Indexing</li>
+        <li> <i class="fa-li fa fa-check"></i>Efficient Restyling</li>
+        <li> <i class="fa-li fa fa-check"></i>Fluid retrieval of geometry</li>
+      </ul>
+      <p class="fragment fade-in" data-fragment-index="1">
+        Written using native Leaflet functions and in ~424 lines of unminified code
+      </p>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="02.05-leaflet-vt"></aside>
 </section>
 
+<!-- 02.06-editing-leaflet-vt -->
 <section>
-  <h1 class="huge">Vector Tile Implementations</h1>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Format?</h3>
-  <ul>
-    <li>PBF</li>
-    <li>GeoJson</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Render?</h3>
-  <ul>
-    <li>MapboxGL</li>
-    <li>LeafletVectorGrid</li>
-    <li>OpenLayers</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <h3>Server?</h3>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <img src="./media/images/vetro_logo.png"></img>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <img src="./media/images/vetro_logo.png"></img>
-  <ul>
-    <li>Dynamic Restyling</li>
-    <li>Interactivity</li>
-    <li>Editing</li>
-  </ul>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
-</section>
-
-<section>
-  <img src="./media/images/vetro_logo.png"></img>
+  <h3>Editing w/Leaflet Draw</h3>
   <img src="./media/images/vetro_editing.gif"></img>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="02.06-editing-leaflet-vt"></aside>
 </section>
 
+<!-- 02.07-leaflet-vt-benefits -->
 <section>
-  <h1 class="huge">Questions?</h1>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>What Worked</h2>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <li>Interactivity</li>
+        <li>Low Maintainence Costs</li>
+        <li>Low Switching Costs</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="02.07-leaflet-vt-benefits"></aside>
 </section>
 
+<!-- 02.08-leaflet-vt-issues -->
 <section>
-  <h2>Lizzi Slivinski</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>What's Left</h2>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <li>Improve Layer Management</li>
+        <li>Reuse geometry at multiple zoom levels</li>
+        <li>Resolve Quirks</li>
+        <li>Performance</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="02.08-leaflet-vt-issues"></aside>
+</section>
+
+<!-- 03.01-conclusions -->
+<section>
+  <h2>Conclusions</h2>
+  <ol>
+    <li class="fragment">Migration is hard, but vector tiles are worth it</li>
+    <li class="fragment">Lots of great software out there</li>
+    <li class="fragment">Stategize based on the issues your project is currently experiencing and your goals for the future</li>
+  </ol>
+  <aside class="notes" data-markdown="03.01-conclusions"></aside>
+</section>
+
+<!-- 03.02-thank-you -->
+<section>
+  <h1 class="huge">THANK YOU <span class="highlight">KELVIN</span>!!!</h1>
+  <aside class="notes" data-markdown="03.02-thank-you"></aside>
+</section>
+
+<!-- 03.03-questions -->
+<section>
+  <h1>QUESTIONS?</h1>
+  <aside class="notes" data-markdown="03.03-questions"></aside>
+</section>
+
+<!-- 03.04-contact-info -->
+<section>
+  <h2 class="highlight">Lizzi Slivinski</h2>
   <h3>NBT Solutions</h3>
+  <hr>
   <ul class="fa-ul">
-    <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>eslivinski@gmail.com</li>
-    <li><i class="fa fa-li fa-github-alt" aria-hidden="true"></i>@eSlivinski</li>
-    <li><i class="fa fa-li fa-twitter" aria-hidden="true"></i>@eSlivinski</li>
+    <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>
+      <a href="mailto:lizzi.slivinski@nbtsolutions.com">lizzi.slivinski@nbtsolutions.com</a>
+    </li>
+    <li><i class="fa fa-li fa-github-alt" aria-hidden="true"></i>
+      <a href="https://github.com/eSlivinski">@eSlivinski</a>
+    </li>
+    <li><i class="fa fa-li fa-twitter" aria-hidden="true"></i>
+    <a href="https://twitter.com/eSlivinski">@eSlivinski</a>
+    </li>
   </p>
-  <aside class="notes">
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </aside>
+  <aside class="notes" data-markdown="03.04-contact-info"></aside>
 </section>
 
     </div>
@@ -316,6 +330,13 @@
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
     <script>
+      document.querySelectorAll('[data-markdown]').forEach((el)=> {
+        let markdownFileName = el.getAttribute('data-markdown');
+        if (markdownFileName) {
+          el.setAttribute('data-markdown', `./notes/${markdownFileName}.md` );
+        }
+
+      })
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         history: true,
@@ -330,4 +351,5 @@
       });
     </script>
   </body>
+
 </html>

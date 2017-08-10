@@ -104,7 +104,9 @@
 	function createMarkdownSlide( content, options ) {
 
 		options = getSlidifyOptions( options );
-
+		if (options.notesOnly) {
+			return '<aside class="notes">' + marked(content.trim()) + '</aside>';
+		}
 		var notesMatch = content.split( new RegExp( options.notesSeparator, 'mgi' ) );
 
 		if( notesMatch.length === 2 ) {
@@ -181,8 +183,9 @@
 				} );
 
 				markdownSections += '</section>';
-			}
-			else {
+			} else if (options.notesOnly) {
+				return createMarkdownSlide(sectionStack[i], options);
+			} else {
 				markdownSections += '<section '+ options.attributes +' data-markdown>' + createMarkdownSlide( sectionStack[i], options ) + '</section>';
 			}
 		}
@@ -221,12 +224,12 @@
 					if( xhr.readyState === 4 ) {
 						// file protocol yields status code 0 (useful for local debug, mobile applications etc.)
 						if ( ( xhr.status >= 200 && xhr.status < 300 ) || xhr.status === 0 ) {
-
 							section.outerHTML = slidify( xhr.responseText, {
 								separator: section.getAttribute( 'data-separator' ),
 								verticalSeparator: section.getAttribute( 'data-separator-vertical' ),
 								notesSeparator: section.getAttribute( 'data-separator-notes' ),
-								attributes: getForwardedAttributes( section )
+								attributes: getForwardedAttributes( section ),
+								notesOnly: section.nodeName === 'ASIDE'
 							});
 
 						}
