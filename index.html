@@ -65,6 +65,7 @@
 <section>
   <h3>Why Bother Migrating?</h3>
   <ol>
+    <li class="fragment"> New fangled awesomeness </li>
     <li class="fragment"> Short-comings of traditional data formats </li>
   </ol>
   <aside class="notes" data-markdown="01.01-vt-benefits"> </aside>
@@ -77,7 +78,7 @@
     <img src="./media/images/image_tiles.png"></img>
   </div>
 
-  <div class="fragment" data-fragment-index="1">
+  <div class="fragment fade-in" data-fragment-index="1">
     <img src="./media/images/tradeoff-raster.png"/>
     <hr>
     <div class="row">
@@ -101,26 +102,29 @@
 <!-- 01.03-trade-off-vectors -->
 <section>
   <h3>Geojson + SVG/Canvas/HTML</h3>
+  <br>
   <!-- <div class="fragment fade-out" data-fragment-index="1">
     <img src="./media/images/image_tiles.png"></img>
   </div> -->
 
   <!-- <div class="fragment" data-fragment-index="1"> -->
-    <img src="./media/images/tradeoff-vector.png"/>
-    <hr>
-    <div class="row">
-      <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
-          <li><i class="fa-li fa fa-thumbs-up"></i>Dynamically styled</li>
-          <li><i class="fa-li fa fa-thumbs-up"></i>Access to data</li>
-        </ul>
-      </div>
-      <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
-          <li><i class="fa-li fa fa-thumbs-down"></i>Can overwhelm the browser</li>
-        </ul>
-      </div>
+  <img src="./media/images/tradeoff-vector.png"/>
+  <hr>
+  <div class="row">
+    <div class="col-xs-6">
+      <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+        <li><i class="fa-li fa fa-thumbs-up"></i>Dynamically styled</li>
+        <li><i class="fa-li fa fa-thumbs-up"></i>Access to data</li>
+      </ul>
     </div>
+    <div class="col-xs-6">
+      <ul class="fa-ul fragment fade-in" data-fragment-index="3">
+        <li><i class="fa-li fa fa-thumbs-down"></i>Can overwhelm the browser</li>
+      </ul>
+    </div>
+    <br>
+    <br>
+  </div>
   <!-- </div> -->
   <aside class="notes" data-markdown="01.03-trade-off-vectors"></aside>
 </section>
@@ -185,17 +189,17 @@
 
 <!-- 02.03-migration-goals -->
 <section>
-  <h3>Goals</h3>
+  <h2 class="highlight">Goals</h2>
   <br>
   <ol>
     <li class="fragment">Enhance Performance</li>
     <li class="fragment">Minimize Reengineering <span class="fragment">(where possible)</span></li>
     <li class="fragment">Maintain Interactivity/UX
-      <ul class="fragment">
+      <small><ul>
         <li>Dynamic Restyling</li>
-        <li>GIS Functions<br>(Point in polygon, nearest features)</li>
-        <li>Editing</li>
-      </ul>
+        <li>GIS Functions - (Point in polygon, nearest features)</li>
+        <li><b class="fragment highlight-blue">Editing</b></li>
+      </ul></small>
     </li>
   </ol>
 
@@ -301,7 +305,7 @@
 
 <!-- 03.03-questions -->
 <section>
-  <h1>QUESTIONS?</h1>
+  <h1 class="highlight">QUESTIONS?</h1>
   <aside class="notes" data-markdown="03.03-questions"></aside>
 </section>
 
