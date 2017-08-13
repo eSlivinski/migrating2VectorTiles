@@ -71,11 +71,7 @@
 <!-- 01.02-trade-off-image-tiles -->
 <section>
   <h3>Image Tiles</h3>
-  <!-- <div class="fragment fade-out" data-fragment-index="1">
-    <img src="./media/images/image_tiles.png"></img>
-  </div> -->
-
-  <div class="fragment" data-fragment-index="1">
+  <div>
     <img src="./media/images/tradeoff-raster.png"/>
     <hr>
     <div class="row">
@@ -129,27 +125,31 @@
 
 <!-- 01.05-trade-off-vt -->
 <section>
-  <h3>Vector Tiles</h3>
-
   <div class="fragment fade-out" data-fragment-index="1">
-    <img src="./media/images/vector_tiles.gif" style="max-width: 60%"></img>
-    <div>
-      <small> <a href="https://mapzen.com/projects/vector-tiles/">Mapzen</a> </small>
-    </div>
+    <img src="./media/images/image_tiles.png"></img>
   </div>
+  <span class="fragment fade-in" data-fragment-index="1">
+    <h3>Vector Tiles</h3>
+    <div class="fragment fade-out" data-fragment-index="2">
+      <img src="./media/images/vector_tiles.gif" style="max-width: 50%"></img>
+      <div>
+        <small style="font-size: .5em"> <a href="https://mapzen.com/projects/vector-tiles/">Mapzen</a> </small>
+      </div>
+    </div>
+  </span>
 
-  <div class="fragment fade-in" data-fragment-index="1">
+  <div class="fragment fade-in" data-fragment-index="2">
     <img src="./media/images/tradeoff-optimal.png"/>
     <hr>
     <div class="row">
       <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
           <li><i class="fa-li fa fa-thumbs-up"></i>Dynamic Styling</li>
           <li><i class="fa-li fa fa-thumbs-up"></i>Access to Data</li>
         </ul>
       </div>
       <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
           <li><i class="fa-li fa fa-thumbs-up"></i>Increased Preformance</li>
         </ul>
       </div>
@@ -310,6 +310,10 @@
   <h3>NBT Solutions</h3>
   <hr>
   <ul class="fa-ul small">
+    <li><i class="fa fa-li fa-laptop" aria-hidden="true"></i>
+      <a href="https://github.com/eSlivinski/migrating2VectorTiles">github.com/eSlivinski/migrating2VectorTiles</a>
+    </li>
+    <br>
     <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>
       <a href="mailto:lizzi.slivinski@nbtsolutions.com">lizzi.slivinski@nbtsolutions.com</a>
     </li>
