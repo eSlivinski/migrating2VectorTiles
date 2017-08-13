@@ -49,14 +49,11 @@
 <!-- 00.04-vt-deff -->
 <!-- TODO: Get a Better Deffiniton -->
 <section>
-  <h3>Vector Tiles</h3>
-  <p>
-    [Vector tiles] are
-    <span class="fragment highlight-blue" data-fragment-index="1"> packets of geographic data</span>,
-    packaged into pre-defined roughly-square shaped
-    <span class="fragment highlight-blue" data-fragment-index="2">"tiles"</span> for transfer over the web
-    <em>~Wikpedia</em>
-  </p>
+  <div class="text-left">
+    <h2 class="highlight">VECTOR TILES</h2>
+    <p> [Vector tiles] are <span class="fragment highlight-blue" data-fragment-index="1"> packets of geographic data </span> , packaged into pre-defined roughly-square shaped <span class="fragment highlight-blue" data-fragment-index="1">"tiles"</span> for transfer over the web </p>
+  </div>
+  <p class="small text-right"> <a href="https://en.wikipedia.org/wiki/Vector_tiles">Wikipedia</a> </p>
   <aside class="notes" data-markdown="00.04-vt-deff"></aside>
 </section>
 
@@ -74,22 +71,22 @@
 <!-- 01.02-trade-off-image-tiles -->
 <section>
   <h3>Image Tiles</h3>
-  <div class="fragment fade-out" data-fragment-index="1">
+  <!-- <div class="fragment fade-out" data-fragment-index="1">
     <img src="./media/images/image_tiles.png"></img>
-  </div>
+  </div> -->
 
-  <div class="fragment fade-in" data-fragment-index="1">
+  <div class="fragment" data-fragment-index="1">
     <img src="./media/images/tradeoff-raster.png"/>
     <hr>
     <div class="row">
       <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
+        <ul class="fa-ul fragment" data-fragment-index="3">
           <li><i class="fa-li fa fa-thumbs-down"></i>Immutable</li>
           <li><i class="fa-li fa fa-thumbs-down"></i>Can’t interact with the data</li>
         </ul>
       </div>
       <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+        <ul class="fa-ul fragment" data-fragment-index="2">
           <li><i class="fa-li fa fa-thumbs-up"></i>Only load visible data</li>
         </ul>
       </div>
@@ -103,11 +100,6 @@
 <section>
   <h3>Geojson + SVG/Canvas/HTML</h3>
   <br>
-  <!-- <div class="fragment fade-out" data-fragment-index="1">
-    <img src="./media/images/image_tiles.png"></img>
-  </div> -->
-
-  <!-- <div class="fragment" data-fragment-index="1"> -->
   <img src="./media/images/tradeoff-vector.png"/>
   <hr>
   <div class="row">
@@ -130,7 +122,8 @@
 </section>
 
 <!-- 01.04-trade-off-implications-->
-<section data-background-image="./media/images/chrome-error.jpg">
+<section>
+  <img src="./media/images/chrome_error.png" style="max-width: 75%;"></img>
   <aside class="notes" data-markdown="01.04-trade-off-implications"></aside>
 </section>
 
@@ -140,6 +133,9 @@
 
   <div class="fragment fade-out" data-fragment-index="1">
     <img src="./media/images/vector_tiles.gif" style="max-width: 60%"></img>
+    <div>
+      <small> <a href="https://mapzen.com/projects/vector-tiles/">Mapzen</a> </small>
+    </div>
   </div>
 
   <div class="fragment fade-in" data-fragment-index="1">
@@ -180,7 +176,7 @@
   <img src="./media/images/vetro_logo.png"></img>
   <div class="row">
     <div class="col-sm-12">
-      <img src="./media/images/screenshot.png" style="max-width: 50%"></img><br>
+      <img src="./media/images/screenshot_vetro.png" style="max-width: 50%"></img><br>
       <small><a href="http://www.vetrofibermap.com">vetrofibermap.com</a></small>
     </div>
   </div>
@@ -189,13 +185,13 @@
 
 <!-- 02.03-migration-goals -->
 <section>
-  <h2 class="highlight">Goals</h2>
+  <h2 class="highlight">GOALS</h2>
   <br>
   <ol>
     <li class="fragment">Enhance Performance</li>
-    <li class="fragment">Minimize Reengineering <span class="fragment">(where possible)</span></li>
+    <li class="fragment">Minimize Reengineering&mdash;where possible</li>
     <li class="fragment">Maintain Interactivity/UX
-      <small><ul>
+      <small class="fragment"><ul>
         <li>Dynamic Restyling</li>
         <li>GIS Functions - (Point in polygon, nearest features)</li>
         <li><b class="fragment highlight-blue">Editing</b></li>
@@ -210,9 +206,9 @@
 <section>
   <div class="row">
     <div class="col-sm-12">
-      <h3 class="text-left"> <span class="highlight">a)</span> Update our map code to utilize another library </h3>
-      <br>
-      <h3 class="text-left"> <span class="highlight">b)</span> extend a plugin to meet our needs</h3>
+      <h1 class="huge fragment fade-out"> Weighing our options... </h1>
+      <h3 class="text-left fragment fade-in"> <span class="highlight">a)</span> Extend a plugin to meet our needs <br></h3>
+      <h3 class="text-left fragment fade-in"> <span class="highlight">b)</span> Update our code to use another library </h3>
     </div>
   </div>
   <aside class="notes" data-markdown="02.04-migration-strategy"></aside>
@@ -258,10 +254,10 @@
       <h2>What Worked</h2>
     </div>
     <div class="col-sm-6">
-      <ul>
-        <li>Interactivity</li>
-        <li>Low Maintainence Costs</li>
-        <li>Low Switching Costs</li>
+      <ul class="fa-ul">
+        <li><i class="fa fa-li fa-check-square-o"></i>Interactivity</li>
+        <li><i class="fa fa-li fa-check-square-o"></i>Low Switching Costs</li>
+        <li><i class="fa fa-li fa-check-square-o"></i>Improved Performance</li>
       </ul>
     </div>
   </div>
@@ -275,11 +271,10 @@
       <h2>What's Left</h2>
     </div>
     <div class="col-sm-6">
-      <ul>
-        <li>Improve Layer Management</li>
-        <li>Reuse geometry at multiple zoom levels</li>
-        <li>Resolve Quirks</li>
-        <li>Performance</li>
+      <ul class="fa-ul">
+        <li><i class="fa fa-li fa-square-o"></i>Reuse geometry at multiple zoom levels</li>
+        <li><i class="fa fa-li fa-square-o"></i>Resolve Quirks</li>
+        <li><i class="fa fa-li fa-square-o"></i>Improve Layer Management</li>
       </ul>
     </div>
   </div>
@@ -314,9 +309,12 @@
   <h2 class="highlight">Lizzi Slivinski</h2>
   <h3>NBT Solutions</h3>
   <hr>
-  <ul class="fa-ul">
+  <ul class="fa-ul small">
     <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>
       <a href="mailto:lizzi.slivinski@nbtsolutions.com">lizzi.slivinski@nbtsolutions.com</a>
+    </li>
+    <li><i class="fa fa-li fa-laptop" aria-hidden="true"></i>
+      <a href="https://github.com/eSlivinski/migrating2VectorTiles">github.com/eSlivinski/migrating2VectorTiles</a>
     </li>
     <li><i class="fa fa-li fa-github-alt" aria-hidden="true"></i>
       <a href="https://github.com/eSlivinski">@eSlivinski</a>
