@@ -58,7 +58,6 @@
 </section>
 
 <!-- 01.01-vt-benefits -->
-<!-- TODO: ADD SHINY FEATURES HERE? -->
 <section>
   <h3>Why Bother Migrating?</h3>
   <ol>
@@ -68,11 +67,22 @@
   <aside class="notes" data-markdown="01.01-vt-benefits"> </aside>
 </section>
 
+<!-- 01.01- -->
+<section>
+  <h3>Traditional Data Formats</h3>
+  <ol>
+    <li class="fragment"> Image Tiles</li>
+    <li class="fragment"> Vector Formats (ie. Geojson + Canvas/SVG/HTML) </li>
+  </ol>
+  <aside class="notes" data-markdown="01.01-traditional-formats"> </aside>
+</section>
+
 <!-- 01.02-trade-off-image-tiles -->
 <section>
   <h3>Image Tiles</h3>
   <div>
-    <img src="./media/images/tradeoff-raster.png"/>
+    <img src="./media/images/imagetiles.png"></img>
+    <br>
     <hr>
     <div class="row">
       <div class="col-xs-6">
@@ -96,7 +106,11 @@
 <section>
   <h3>Geojson + SVG/Canvas/HTML</h3>
   <br>
-  <img src="./media/images/tradeoff-vector.png"/>
+  <img class="fragment fade-out" data-fragment-index="4" src="./media/images/vectors.png"></img>
+  <span class="fragment fade-in" data-fragment-index="4">
+    <img class="fragment fade-out" data-fragment-index="5" src="./media/images/vectors_b.png"></img>
+  </span>
+  <img class="fragment fade-in" data-fragment-index="5" src="./media/images/vectors_c.png"></img>
   <hr>
   <div class="row">
     <div class="col-xs-6">
@@ -119,27 +133,17 @@
 
 <!-- 01.04-trade-off-implications-->
 <section>
-  <img src="./media/images/chrome_error.png" style="max-width: 75%;"></img>
+  <img src="./media/images/chrome_error.png" class="fragment fade-out" data-fragment-index="1" style="max-width: 75%;"></img>
+  <img src="./media/images/chrome_happy.png" class="fragment fade-in" data-fragment-index="1" style="max-width: 75%;"></img>
   <aside class="notes" data-markdown="01.04-trade-off-implications"></aside>
 </section>
 
 <!-- 01.05-trade-off-vt -->
 <section>
-  <div class="fragment fade-out" data-fragment-index="1">
-    <img src="./media/images/image_tiles.png"></img>
-  </div>
-  <span class="fragment fade-in" data-fragment-index="1">
-    <h3>Vector Tiles</h3>
-    <div class="fragment fade-out" data-fragment-index="2">
-      <img src="./media/images/vector_tiles.gif" style="max-width: 50%"></img>
-      <div>
-        <small style="font-size: .5em"> <a href="https://mapzen.com/projects/vector-tiles/">Mapzen</a> </small>
-      </div>
-    </div>
-  </span>
-
-  <div class="fragment fade-in" data-fragment-index="2">
-    <img src="./media/images/tradeoff-optimal.png"/>
+  <h3>Vector Tiles</h3>
+  <div>
+    <img src="./media/images/vectortiles.png"/>
+    <br>
     <hr>
     <div class="row">
       <div class="col-xs-6">
@@ -157,12 +161,6 @@
   </div>
 
   <aside class="notes" data-markdown="01.05-trade-off-vt"></aside>
-</section>
-
-<!-- 01.06-vt-benefits-conclusion -->
-<section>
-  <img src="https://media.giphy.com/media/YtLdRorcY7gcg/giphy.gif"></img>
-  <aside class="notes" data-markdown="01.06-vt-benefits-conclusion"></aside>
 </section>
 
 <!-- 02.01-migration-intro -->
@@ -298,12 +296,6 @@
   <aside class="notes" data-markdown="03.02-thank-you"></aside>
 </section>
 
-<!-- 03.03-questions -->
-<section>
-  <h1 class="highlight">QUESTIONS?</h1>
-  <aside class="notes" data-markdown="03.03-questions"></aside>
-</section>
-
 <!-- 03.04-contact-info -->
 <section>
   <h2 class="highlight">Lizzi Slivinski</h2>
@@ -317,9 +309,6 @@
     <li><i class="fa fa-li fa-envelope" aria-hidden="true"></i>
       <a href="mailto:lizzi.slivinski@nbtsolutions.com">lizzi.slivinski@nbtsolutions.com</a>
     </li>
-    <li><i class="fa fa-li fa-laptop" aria-hidden="true"></i>
-      <a href="https://github.com/eSlivinski/migrating2VectorTiles">github.com/eSlivinski/migrating2VectorTiles</a>
-    </li>
     <li><i class="fa fa-li fa-github-alt" aria-hidden="true"></i>
       <a href="https://github.com/eSlivinski">@eSlivinski</a>
     </li>
@@ -328,6 +317,12 @@
     </li>
   </p>
   <aside class="notes" data-markdown="03.04-contact-info"></aside>
+</section>
+
+<!-- 03.03-questions -->
+<section>
+  <h1 class="highlight">QUESTIONS?</h1>
+  <aside class="notes" data-markdown="03.03-questions"></aside>
 </section>
 
     </div>
