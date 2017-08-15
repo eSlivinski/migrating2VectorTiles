@@ -35,13 +35,13 @@
   <h2>Road Map</h2>
   <ol>
     <li class="fragment">The Case for Vector Tiles</li>
-    <li class="fragment">Developing a Migration Stratey</li>
+    <li class="fragment">Developing a Migration Strategy</li>
   </ol>
   <aside class="notes" data-markdown="00.02-road-map"></aside>
 </section>
 
 <!-- 00.03-what-are-vt-->
-<section>
+<section data-transition="zoom-in">
   <h1 class="huge">What are vector tiles?</h1>
   <aside class="notes" data-markdown="00.03-what-are-vt"></aside>
 </section>
@@ -59,39 +59,49 @@
 
 <!-- 01.01-vt-benefits -->
 <section>
-  <h3>Why Bother Migrating?</h3>
-  <ol>
-    <li class="fragment"> New fangled awesomeness </li>
-    <li class="fragment"> Short-comings of traditional data formats </li>
-  </ol>
+  <h3>Why All the Excitement?</h3>
+  <div class="row">
+    <div class="col-sm-12 text-left">
+      <ol>
+        <li class="fragment"> Shiny New Tech </li>
+        <li class="fragment"> Shortcomings of Traditional Data Formats </li>
+      </ol>
+    </div>
+  </div>
   <aside class="notes" data-markdown="01.01-vt-benefits"> </aside>
 </section>
 
-<!-- 01.01- -->
+<!-- 01.02-traditional-formats -->
 <section>
   <h3>Traditional Data Formats</h3>
-  <ol>
-    <li class="fragment"> Image Tiles</li>
-    <li class="fragment"> Vector Formats (ie. Geojson + Canvas/SVG/HTML) </li>
-  </ol>
-  <aside class="notes" data-markdown="01.01-traditional-formats"> </aside>
+  <div class="row">
+    <div class="col-sm-12 text-left">
+      <ol>
+        <li class="fragment"> Image Tiles</li>
+        <li class="fragment"> Vector Formats<br>(ie. Geojson + Canvas/SVG/HTML) </li>
+      </ol>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="01.02-traditional-formats"> </aside>
 </section>
 
-<!-- 01.02-trade-off-image-tiles -->
+<!-- 01.03-trade-off-image-tiles -->
 <section>
   <h3>Image Tiles</h3>
   <div>
     <img src="./media/images/imagetiles.png"></img>
     <br>
-    <hr>
-    <div class="row">
+    <div class="row fragment" data-fragment-index="1">
+      <hr>
       <div class="col-xs-6">
+        <h4>Interactivity</h4>
         <ul class="fa-ul fragment" data-fragment-index="3">
           <li><i class="fa-li fa fa-thumbs-down"></i>Immutable</li>
           <li><i class="fa-li fa fa-thumbs-down"></i>Can’t interact with the data</li>
         </ul>
       </div>
       <div class="col-xs-6">
+        <h4>Efficiency</h4>
         <ul class="fa-ul fragment" data-fragment-index="2">
           <li><i class="fa-li fa fa-thumbs-up"></i>Only load visible data</li>
         </ul>
@@ -99,27 +109,28 @@
     </div>
   </div>
 
-  <aside class="notes" data-markdown="01.02-trade-off-image-tiles"> </aside>
+  <aside class="notes" data-markdown="01.03-trade-off-image-tiles"> </aside>
 </section>
 
-<!-- 01.03-trade-off-vectors -->
+<!-- 01.04-trade-off-vectors -->
 <section>
   <h3>Geojson + SVG/Canvas/HTML</h3>
-  <br>
   <img class="fragment fade-out" data-fragment-index="4" src="./media/images/vectors.png"></img>
   <span class="fragment fade-in" data-fragment-index="4">
     <img class="fragment fade-out" data-fragment-index="5" src="./media/images/vectors_b.png"></img>
   </span>
   <img class="fragment fade-in" data-fragment-index="5" src="./media/images/vectors_c.png"></img>
-  <hr>
-  <div class="row">
+  <div class="row fragment" data-fragment-index="1">
+    <hr>
     <div class="col-xs-6">
+      <h4>Interactivity</h4>
       <ul class="fa-ul fragment fade-in" data-fragment-index="2">
         <li><i class="fa-li fa fa-thumbs-up"></i>Dynamically styled</li>
         <li><i class="fa-li fa fa-thumbs-up"></i>Access to data</li>
       </ul>
     </div>
     <div class="col-xs-6">
+      <h4>Efficiency</h4>
       <ul class="fa-ul fragment fade-in" data-fragment-index="3">
         <li><i class="fa-li fa fa-thumbs-down"></i>Can overwhelm the browser</li>
       </ul>
@@ -128,43 +139,44 @@
     <br>
   </div>
   <!-- </div> -->
-  <aside class="notes" data-markdown="01.03-trade-off-vectors"></aside>
+  <aside class="notes" data-markdown="01.04-trade-off-vectors"></aside>
 </section>
 
-<!-- 01.04-trade-off-implications-->
+<!-- 01.05-trade-off-implications-->
 <section>
   <img src="./media/images/chrome_error.png" class="fragment fade-out" data-fragment-index="1" style="max-width: 75%;"></img>
   <img src="./media/images/chrome_happy.png" class="fragment fade-in" data-fragment-index="1" style="max-width: 75%;"></img>
-  <aside class="notes" data-markdown="01.04-trade-off-implications"></aside>
+  <aside class="notes" data-markdown="01.05-trade-off-implications"></aside>
 </section>
 
-<!-- 01.05-trade-off-vt -->
+<!-- 01.06-trade-off-vt -->
 <section>
   <h3>Vector Tiles</h3>
-  <div>
-    <img src="./media/images/vectortiles.png"/>
-    <br>
+  <img src="./media/images/vectortiles.png"/>
+  <br>
+  <div class="row fragment">
     <hr>
-    <div class="row">
-      <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
-          <li><i class="fa-li fa fa-thumbs-up"></i>Dynamic Styling</li>
-          <li><i class="fa-li fa fa-thumbs-up"></i>Access to Data</li>
-        </ul>
-      </div>
-      <div class="col-xs-6">
-        <ul class="fa-ul fragment fade-in" data-fragment-index="3">
-          <li><i class="fa-li fa fa-thumbs-up"></i>Increased Preformance</li>
-        </ul>
-      </div>
+    <div class="col-xs-6" data-fragment-index="1">
+      <ul class="fa-ul fragment" data-fragment-index="2">
+        <h4>Interactivity</h4>
+        <li><i class="fa-li fa fa-thumbs-up"></i>Dynamic Styling</li>
+        <li><i class="fa-li fa fa-thumbs-up"></i>Access to Data</li>
+      </ul>
+    </div>
+    <div class="col-xs-6">
+      <ul class="fa-ul fragment fade-in" data-fragment-index="2">
+        <h4>Efficiency</h4>
+        <li><i class="fa-li fa fa-thumbs-up"></i>Increased Preformance</li>
+      </ul>
     </div>
   </div>
 
-  <aside class="notes" data-markdown="01.05-trade-off-vt"></aside>
+
+  <aside class="notes" data-markdown="01.06-trade-off-vt"></aside>
 </section>
 
 <!-- 02.01-migration-intro -->
-<section>
+<section data-transition="zoom-in">
   <h1 class="huge"> Making the <span class="highlight">Switch</span></h1>
   <aside class="notes" data-markdown="02.01-migration-intro"> </aside>
 </section>
@@ -201,18 +213,43 @@
 </section>
 
 <!-- 02.04-migration-strategy-->
-<section>
+<section data-transition="zoom-in">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="huge fragment fade-out"> Weighing our options... </h1>
-      <h3 class="text-left fragment fade-in"> <span class="highlight">a)</span> Extend a plugin to meet our needs <br></h3>
-      <h3 class="text-left fragment fade-in"> <span class="highlight">b)</span> Update our code to use another library </h3>
+      <br>
+      <h1 class="huge fragment fade-out" data-fragment-index="1"> Weighing our options... </h1>
+
+      <h3 class="text-left fragment" data-fragment-index="1">
+        <i class="fa fa-fw fa-check fragment" data-fragment-index="3"></i>
+        <span class="highlight">a)</span> Extend a plugin to<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meet our needs
+        <br><br>
+      </h3>
+
+      <h3 class="text-left fragment" data-fragment-index="2">
+        <i class="fa fa-fw"></i>
+        <span class="highlight">b)</span> Update our code to<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use another library
+      </h3>
     </div>
   </div>
   <aside class="notes" data-markdown="02.04-migration-strategy"></aside>
 </section>
 
-<!-- 02.05-leaflet-vt -->
+<!-- 02.05-attempting-plugins -->
+<section>
+  <div class="row">
+    <div class="col-sm-12">
+      <span><img src="./media/images/plugin_a.png" class="fragment fade-out" data-fragment-index="1"></img></span>
+      <span class="fragment fade-in" data-fragment-index="1"><img src="./media/images/plugin_b.png" class="fragment fade-out" data-fragment-index="2"></img></span>
+      <span class="fragment fade-in" data-fragment-index="2"><img src="./media/images/plugin_c.png" class="fragment fade-out" data-fragment-index="3"></img></span>
+      <span class="fragment fade-in" data-fragment-index="3"><img src="./media/images/plugin_d.png"></img></span>
+    </div>
+  </div>
+  <aside class="notes" data-markdown="02.05-attempting-plugins"></aside>
+</section>
+
+<!-- 02.06-leaflet-vt -->
 <section>
   <h3>Going <span class="highlight">Rogue</span>&mdash;DIY Tiles</h3>
   <div class="row">
@@ -227,25 +264,24 @@
       </p>
       <ul class="fa-ul fragment fade-out" data-fragment-index="1">
         <li> <i class="fa-li fa fa-check"></i>Spatial Indexing</li>
-        <li> <i class="fa-li fa fa-check"></i>Efficient Restyling</li>
-        <li> <i class="fa-li fa fa-check"></i>Fluid retrieval of geometry</li>
+        <li> <i class="fa-li fa fa-check"></i>Methods for Efficient Restyling &amp; fluid retrieval of geometry</li>
       </ul>
       <p class="fragment fade-in" data-fragment-index="1">
         Written using native Leaflet functions and in ~424 lines of unminified code
       </p>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.05-leaflet-vt"></aside>
+  <aside class="notes" data-markdown="02.06-leaflet-vt"></aside>
 </section>
 
-<!-- 02.06-editing-leaflet-vt -->
+<!-- 02.07-editing-leaflet-vt -->
 <section>
   <h3>Editing w/Leaflet Draw</h3>
   <img src="./media/images/vetro_editing.gif"></img>
-  <aside class="notes" data-markdown="02.06-editing-leaflet-vt"></aside>
+  <aside class="notes" data-markdown="02.07-editing-leaflet-vt"></aside>
 </section>
 
-<!-- 02.07-leaflet-vt-benefits -->
+<!-- 02.08-leaflet-vt-benefits -->
 <section>
   <div class="row">
     <div class="col-sm-6">
@@ -259,10 +295,10 @@
       </ul>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.07-leaflet-vt-benefits"></aside>
+  <aside class="notes" data-markdown="02.08-leaflet-vt-benefits"></aside>
 </section>
 
-<!-- 02.08-leaflet-vt-issues -->
+<!-- 02.09-leaflet-vt-issues -->
 <section>
   <div class="row">
     <div class="col-sm-6">
@@ -276,7 +312,7 @@
       </ul>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.08-leaflet-vt-issues"></aside>
+  <aside class="notes" data-markdown="02.09-leaflet-vt-issues"></aside>
 </section>
 
 <!-- 03.01-conclusions -->
@@ -285,18 +321,18 @@
   <ol>
     <li class="fragment">Migration is hard, but vector tiles are worth it</li>
     <li class="fragment">Lots of great software out there</li>
-    <li class="fragment">Stategize based on the issues your project is currently experiencing and your goals for the future</li>
+    <li class="fragment">Strategize based on the issues your project is currently experiencing and your goals for the future</li>
   </ol>
   <aside class="notes" data-markdown="03.01-conclusions"></aside>
 </section>
 
 <!-- 03.02-thank-you -->
-<section>
+<section data-transition="zoom-in">
   <h1 class="huge">THANK YOU <span class="highlight">KELVIN</span>!!!</h1>
   <aside class="notes" data-markdown="03.02-thank-you"></aside>
 </section>
 
-<!-- 03.04-contact-info -->
+<!-- 03.03-contact-info -->
 <section>
   <h2 class="highlight">Lizzi Slivinski</h2>
   <h3>NBT Solutions</h3>
@@ -316,13 +352,13 @@
     <a href="https://twitter.com/eSlivinski">@eSlivinski</a>
     </li>
   </p>
-  <aside class="notes" data-markdown="03.04-contact-info"></aside>
+  <aside class="notes" data-markdown="03.03-contact-info"></aside>
 </section>
 
-<!-- 03.03-questions -->
-<section>
+<!-- 03.04-questions -->
+<section data-transition="zoom-in">
   <h1 class="highlight">QUESTIONS?</h1>
-  <aside class="notes" data-markdown="03.03-questions"></aside>
+  <aside class="notes" data-markdown="03.04-questions"></aside>
 </section>
 
     </div>
