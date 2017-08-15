@@ -63,8 +63,8 @@
   <div class="row">
     <div class="col-sm-12 text-left">
       <ol>
-        <li class="fragment"> Shiny New Tech </li>
-        <li class="fragment"> Shortcomings of Traditional Data Formats </li>
+        <li class="fragment"> New Technology/Features </li>
+        <li class="fragment"> Resolves Longstanding Problems </li>
       </ol>
     </div>
   </div>
@@ -199,14 +199,14 @@
   <br>
   <ol>
     <li class="fragment">Enhance Performance</li>
-    <li class="fragment">Minimize Reengineering&mdash;where possible</li>
     <li class="fragment">Maintain Interactivity/UX
       <small class="fragment"><ul>
         <li>Dynamic Restyling</li>
         <li>GIS Functions - (Point in polygon, nearest features)</li>
-        <li><b class="fragment highlight-blue">Editing</b></li>
+        <li><b class="highlight-blue">Editing</b></li>
       </ul></small>
     </li>
+    <li class="fragment">Minimize Reengineering&mdash;where possible</li>
   </ol>
 
   <aside class="notes" data-markdown="02.03-migration-goals"></aside>
@@ -220,17 +220,18 @@
       <h1 class="huge fragment fade-out" data-fragment-index="1"> Weighing our options... </h1>
 
       <h3 class="text-left fragment" data-fragment-index="1">
+        <i class="fa fa-fw"></i>
+        <span class="highlight">a)</span> Update our code to<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use another library
+      </h3>
+
+      <h3 class="text-left fragment" data-fragment-index="2">
         <i class="fa fa-fw fa-check fragment" data-fragment-index="3"></i>
-        <span class="highlight">a)</span> Extend a plugin to<br>
+        <span class="highlight">b)</span> Extend a plugin to<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meet our needs
         <br><br>
       </h3>
 
-      <h3 class="text-left fragment" data-fragment-index="2">
-        <i class="fa fa-fw"></i>
-        <span class="highlight">b)</span> Update our code to<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use another library
-      </h3>
     </div>
   </div>
   <aside class="notes" data-markdown="02.04-migration-strategy"></aside>
@@ -275,11 +276,11 @@
 </section>
 
 <!-- 02.07-editing-leaflet-vt -->
-<section>
+<!-- <section>
   <h3>Editing w/Leaflet Draw</h3>
   <img src="./media/images/vetro_editing.gif"></img>
   <aside class="notes" data-markdown="02.07-editing-leaflet-vt"></aside>
-</section>
+</section> -->
 
 <!-- 02.08-leaflet-vt-benefits -->
 <section>
@@ -289,9 +290,9 @@
     </div>
     <div class="col-sm-6">
       <ul class="fa-ul">
+        <li><i class="fa fa-li fa-check-square-o"></i>Improved Performance</li>
         <li><i class="fa fa-li fa-check-square-o"></i>Interactivity</li>
         <li><i class="fa fa-li fa-check-square-o"></i>Low Switching Costs</li>
-        <li><i class="fa fa-li fa-check-square-o"></i>Improved Performance</li>
       </ul>
     </div>
   </div>
@@ -306,9 +307,9 @@
     </div>
     <div class="col-sm-6">
       <ul class="fa-ul">
-        <li><i class="fa fa-li fa-square-o"></i>Reuse geometry at multiple zoom levels</li>
         <li><i class="fa fa-li fa-square-o"></i>Resolve Quirks</li>
-        <li><i class="fa fa-li fa-square-o"></i>Improve Layer Management</li>
+        <li><i class="fa fa-li fa-square-o"></i>Performance Enhancements</li>
+        <li><i class="fa fa-li fa-square-o"></i>Implementation</li>
       </ul>
     </div>
   </div>
