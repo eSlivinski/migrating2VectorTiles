@@ -27,7 +27,6 @@
 <section>
   <h1 class="huge">Migrating to Vector Tiles</h1>
   <h3 class="text-right highlight">Lizzi Slivinski</h3>
-  <aside class="notes" data-markdown="00.01-title"> </aside>
 </section>
 
 <!-- 00.02-road-map -->
@@ -37,24 +36,20 @@
     <li class="fragment">The Case for Vector Tiles</li>
     <li class="fragment">Developing a Migration Strategy</li>
   </ol>
-  <aside class="notes" data-markdown="00.02-road-map"></aside>
 </section>
 
 <!-- 00.03-what-are-vt-->
 <section data-transition="zoom-in">
   <h1 class="huge">What are vector tiles?</h1>
-  <aside class="notes" data-markdown="00.03-what-are-vt"></aside>
 </section>
 
 <!-- 00.04-vt-deff -->
-<!-- TODO: Get a Better Deffiniton -->
 <section>
   <div class="text-left">
     <h2 class="highlight">VECTOR TILES</h2>
     <p> [Vector tiles] are <span class="fragment highlight-blue" data-fragment-index="1"> packets of geographic data </span> , packaged into pre-defined roughly-square shaped <span class="fragment highlight-blue" data-fragment-index="1">"tiles"</span> for transfer over the web </p>
   </div>
   <p class="small text-right"> <a href="https://en.wikipedia.org/wiki/Vector_tiles">Wikipedia</a> </p>
-  <aside class="notes" data-markdown="00.04-vt-deff"></aside>
 </section>
 
 <!-- 01.01-vt-benefits -->
@@ -68,7 +63,6 @@
       </ol>
     </div>
   </div>
-  <aside class="notes" data-markdown="01.01-vt-benefits"> </aside>
 </section>
 
 <!-- 01.02-traditional-formats -->
@@ -82,7 +76,6 @@
       </ol>
     </div>
   </div>
-  <aside class="notes" data-markdown="01.02-traditional-formats"> </aside>
 </section>
 
 <!-- 01.03-trade-off-image-tiles -->
@@ -108,8 +101,6 @@
       </div>
     </div>
   </div>
-
-  <aside class="notes" data-markdown="01.03-trade-off-image-tiles"> </aside>
 </section>
 
 <!-- 01.04-trade-off-vectors -->
@@ -138,15 +129,12 @@
     <br>
     <br>
   </div>
-  <!-- </div> -->
-  <aside class="notes" data-markdown="01.04-trade-off-vectors"></aside>
 </section>
 
 <!-- 01.05-trade-off-implications-->
 <section>
   <img src="./media/images/chrome_error.png" class="fragment fade-out" data-fragment-index="1" style="max-width: 75%;"></img>
   <img src="./media/images/chrome_happy.png" class="fragment fade-in" data-fragment-index="1" style="max-width: 75%;"></img>
-  <aside class="notes" data-markdown="01.05-trade-off-implications"></aside>
 </section>
 
 <!-- 01.06-trade-off-vt -->
@@ -170,15 +158,11 @@
       </ul>
     </div>
   </div>
-
-
-  <aside class="notes" data-markdown="01.06-trade-off-vt"></aside>
 </section>
 
 <!-- 02.01-migration-intro -->
 <section data-transition="zoom-in">
   <h1 class="huge"> Making the <span class="highlight">Switch</span></h1>
-  <aside class="notes" data-markdown="02.01-migration-intro"> </aside>
 </section>
 
 <!-- 02.02-vetro-overview -->
@@ -190,7 +174,6 @@
       <small><a href="http://www.vetrofibermap.com">vetrofibermap.com</a></small>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.02-vetro-overview"> </aside>
 </section>
 
 <!-- 02.03-migration-goals -->
@@ -208,8 +191,6 @@
     </li>
     <li class="fragment">Minimize Reengineering&mdash;where possible</li>
   </ol>
-
-  <aside class="notes" data-markdown="02.03-migration-goals"></aside>
 </section>
 
 <!-- 02.04-migration-strategy-->
@@ -218,23 +199,19 @@
     <div class="col-sm-12">
       <br>
       <h1 class="huge fragment fade-out" data-fragment-index="1"> Weighing our options... </h1>
-
       <h3 class="text-left fragment" data-fragment-index="1">
         <i class="fa fa-fw"></i>
         <span class="highlight">a)</span> Update our code to<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use another library
       </h3>
-
       <h3 class="text-left fragment" data-fragment-index="2">
         <i class="fa fa-fw fa-check fragment" data-fragment-index="3"></i>
         <span class="highlight">b)</span> Extend a plugin to<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meet our needs
         <br><br>
       </h3>
-
     </div>
   </div>
-  <aside class="notes" data-markdown="02.04-migration-strategy"></aside>
 </section>
 
 <!-- 02.05-attempting-plugins -->
@@ -247,7 +224,6 @@
       <span class="fragment fade-in" data-fragment-index="3"><img src="./media/images/plugin_d.png"></img></span>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.05-attempting-plugins"></aside>
 </section>
 
 <!-- 02.06-leaflet-vt -->
@@ -272,14 +248,12 @@
       </p>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.06-leaflet-vt"></aside>
 </section>
 
 <!-- 02.07-editing-leaflet-vt -->
 <section>
   <h3>Editing w/Leaflet Draw</h3>
   <img src="./media/images/vetro_editing.gif"></img>
-  <aside class="notes" data-markdown="02.07-editing-leaflet-vt"></aside>
 </section>
 
 <!-- 02.08-leaflet-vt-benefits -->
@@ -296,7 +270,6 @@
       </ul>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.08-leaflet-vt-benefits"></aside>
 </section>
 
 <!-- 02.09-leaflet-vt-issues -->
@@ -313,7 +286,6 @@
       </ul>
     </div>
   </div>
-  <aside class="notes" data-markdown="02.09-leaflet-vt-issues"></aside>
 </section>
 
 <!-- 03.01-conclusions -->
@@ -324,13 +296,11 @@
     <li class="fragment">Lots of great software out there</li>
     <li class="fragment">Strategize based on the issues your project is currently experiencing and your goals for the future</li>
   </ol>
-  <aside class="notes" data-markdown="03.01-conclusions"></aside>
 </section>
 
 <!-- 03.02-thank-you -->
 <section data-transition="zoom-in">
   <h1 class="huge">THANK YOU <span class="highlight">KELVIN</span>!!!</h1>
-  <aside class="notes" data-markdown="03.02-thank-you"></aside>
 </section>
 
 <!-- 03.03-contact-info -->
@@ -353,13 +323,11 @@
     <a href="https://twitter.com/eSlivinski">@eSlivinski</a>
     </li>
   </p>
-  <aside class="notes" data-markdown="03.03-contact-info"></aside>
 </section>
 
 <!-- 03.04-questions -->
 <section data-transition="zoom-in">
   <h1 class="highlight">QUESTIONS?</h1>
-  <aside class="notes" data-markdown="03.04-questions"></aside>
 </section>
 
     </div>
@@ -368,13 +336,6 @@
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script>
-      document.querySelectorAll('[data-markdown]').forEach((el)=> {
-        let markdownFileName = el.getAttribute('data-markdown');
-        if (markdownFileName) {
-          el.setAttribute('data-markdown', `./notes/${markdownFileName}.md` );
-        }
-
-      })
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         history: true,
